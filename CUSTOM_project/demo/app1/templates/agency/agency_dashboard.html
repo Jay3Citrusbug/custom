@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Agency Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/admin_account_settings.css">
+    <link rel="stylesheet" href="../assets/css/admin_user.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+    <link rel="stylesheet" href="../assets/css/broadcast.css">
+    <link rel="stylesheet" href="../assets/css/campaigns.css">
+    <link rel="stylesheet" href="../assets/css/campaign_creation.css">
+    <link rel="stylesheet" href="../assets/css/campaigns_setting.css">
+    <link rel="stylesheet" href="../assets/css/campaigns_setting.css">
+    <link rel="stylesheet" href="../assets/css/client_contact.css">
+    <link rel="stylesheet" href="../assets/css/client_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/client_list.css">
+    <link rel="stylesheet" href="../assets/css/client_schedule.css">
+    <link rel="stylesheet" href="../assets/css/coupon.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/reedem.css">
+    <link rel="stylesheet" href="../assets/css/twilio.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+
+</head>
+<body>
+    <div class="agency_dashboard_page">
+        <header class="rw_header_wrapper">
+            <div class="rw_header_inner">            
+                <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <h3 ><span>The One MediaMediaMediaMediaMedia</span></h3>
+                    <p>Agency Account</p>
+                </div>
+            <div class="header_profile dropdown">
+                <a href="javascript:;" >
+                    <h4>Jones Ferdinand</h4>
+                    <div class="header_profile_image">
+                        <img src="../assets/images/profile.jpg" alt="image">
+                        <span class="profile_arrow"></span>
+                    </div>
+                </a>
+                <ul class=" header_profile_dropdown" >
+                    <li><a href="#"><img src="../assets/images/icons/logout.svg" alt=""> Logout</a></li>
+                </ul>
+            </div>
+                <div class="rw_hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rw_sidebar">
+                <div class="header_logo">
+                    <a href="agency_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+                </div>
+                <ul>
+                    <li><a href="agency_dashboard.html" class="active"><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                    <li><a href="agency_settings.html"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="rw_inner_area rw_modal_backdrop">
+            <div class="rw_dashboard_box_wrapper">
+                <div class="admin_header agency_header">
+                    <div class="dashboard_title">
+                        <h1>List of Clients</h1>
+                    </div>
+                   <!-- <div class="search_icon_wrapper">
+                       <div class="ag_search_box">
+                        <a href="javascript:;" class="ag_search_icon">
+                            <img src="../assets/images/icons/search.svg" alt="image">                        
+                         </a>
+                         <div class="search_icon_input">
+                            <input type="search" placeholder="Search"  >
+                        </div>
+                       </div>
+                        <div class="rw_dashboard_btn">
+                            <a href="javascript:;" class="rw_btn">+Add client</a>
+                        </div>
+                   </div> -->
+                </div>
+            </div>
+            <div class="admin_user_select">  
+                <div class="search_icon_wrapper">                          
+                     <div class="rw_dashboard_btn">
+                        <a href="javascript:;" class="rw_btn">+Add client</a>
+                     </div>
+                </div>
+             </div> 
+            <div class="rw_table_wrapper">
+                <div class="rw_table_inner rw_admin_user_table  rw_agency_dashboard_table rw_client_list_table">                
+                    <table id="admin_dashboard_table" class="table rw_pagination" >
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th class="text-center">Status</th>
+                                <th class="sorting_none">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>                    
+                           <tr>
+                               <td>Paypal</td>
+                               <td>Added on 3 Dec, 2021  03:00 PM</td>
+                               <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                               <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                           </tr>
+                           <tr>
+                                <td>Mastercard</td>
+                                <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                            </tr>
+                            <tr>
+                                <td>Mitsubishi</td>
+                                <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                            </tr>
+                            <tr>
+                                <td>Spotify</td>
+                                <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                            </tr>
+                            <tr>
+                                <td>Paypal</td>
+                                <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                            </tr>
+                            <tr>
+                                 <td>Mastercard</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                 <td class="text-center">
+                                    <div class="rw_toggle_switch">
+                                        <div class="rw_switch">
+                                            <input type="checkbox" checked="">
+                                        </div>
+                                    </div>
+                                </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             <tr>
+                                 <td>Mitsubishi</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                    <div class="rw_toggle_switch">
+                                        <div class="rw_switch">
+                                            <input type="checkbox" checked="">
+                                        </div>
+                                    </div>
+                                </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             <tr>
+                                 <td>Spotify</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                 <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             <tr>
+                                <td>Paypal</td>
+                                <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                            </tr>
+                            <tr>
+                                 <td>Mastercard</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                 <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             <tr>
+                                 <td>Mitsubishi</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                 <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             <tr>
+                                 <td>Spotify</td>
+                                 <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                 <td class="text-center">
+                                <div class="rw_toggle_switch">
+                                    <div class="rw_switch">
+                                        <input type="checkbox" checked="">
+                                    </div>
+                                </div>
+                            </td>
+                                 <td><a href="../client/campaign_settings.html" class="ag_switch_ac">Switch Account <span><div class="order_arrow"></div></span></a></td>
+                             </tr>
+                             
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+    
+    
+        <div class="offcanvas offcanvas-start agency_offcanvas" tabindex="-1" id="offcanvasExample">
+            <div class="offcanvas-body">
+                <div class="acoount_list_body">
+                    <div class="master_ac">
+                        <h4>Master Account</h4>
+                        <div class="master_ac_inner">
+                            <div class="master_ac_img">
+                                <img src="../assets/images/icons/circle_checkmark.svg" alt="image">
+                            </div>
+                            <div class="master_ac_text">
+                                <h3>The One Media</h3>
+                                <p>Client Login</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client_accounts">
+                        <div class="cs_accounts">
+                            <h4>Client Accounts</h4>
+                            <div class="sorting">
+                                <a href="javascript:;"><img src="../assets/images/icons/sort_up.svg" alt="image"></a>
+                                <a href="javascript:;"><img src="../assets/images/icons/sort_down.svg" alt="image"></a>
+                            </div>
+                        </div>
+                        <div class="search_box">
+                            <input type="text" placeholder="Search accounts..">
+                            <a href="javascript:;" class="inp_icon"><img src="../assets/images/icons/small_search.svg"
+                                    alt="image"></a>
+                        </div>
+                        <ul class="clientuser_list">
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>S</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Starbucks 1</h5>
+                                                <p>Starbucks</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>W</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Walmart 1</h5>
+                                                <p>Walmart</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>G</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Global Fresh Market 1</h5>
+                                                <p>Global Fresh Market</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>D</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Dollar Pantry 1</h5>
+                                                <p>Dollar Pantry</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>F</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Fresh Food Marketplace 1</h5>
+                                                <p>Fresh Food Marketplace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>r</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Rancher’s Grocery 1</h5>
+                                                <p>Rancher’s Grocery</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>J</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Jamboree Marketplace 1</h5>
+                                                <p>Client Account</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="add_client"  data-bs-toggle="modal" data-bs-target="#client_adnew_agency">+ Add New Client</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade twilio_modal rw_modal" id="client_adnew_agency" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal_title">
+                            <h4>Add New Client</h4>
+                        </div>
+                        <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close">
+                            <img src="{% static 'images/icons/close.svg' %}" alt="close"></a>
+                    </div>
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="rw_form_inputs" id="div_first">
+                                    <label class="rw_form_label">First Name</label>
+                                    <div class="rw_input">
+                                        <input type="text" placeholder="First Name" maxlength="15" name="first_name"
+                                            id="first_name">
+                                        <span style="color: red;" id="first_error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rw_form_inputs" id="div_last">
+                                    <label class="rw_form_label">Last Name</label>
+                                    <div class="rw_input">
+                                        <input type="text" placeholder="Last Name" maxlength="15" name="last_name"
+                                            id="last_name">
+                                        <span style="color: red;" id="last_error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rw_form_inputs" id="div_email">
+                                    <label class="rw_form_label">Email Address</label>
+                                    <div class="rw_input">
+                                        <input type="email" placeholder="Email" name="email" id="email">
+                                        <span class="input_icon email"></span>
+                                        <span style="color: red;" id="email_error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rw_form_inputs" id="div_business">
+                                    <label class="rw_form_label">Business Name</label>
+                                    <div class="rw_input">
+                                        <input type="text" placeholder="Business Name" name="business_name" id="business_name">
+                                        <span class="input_icon business"></span>
+                                        <span style="color: red;" id="business_error"></span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-6">
+                                <div class="rw_form_inputs">
+                                    <label class="rw_form_label">Time Zone</label>
+                                    <div class="rw_bootstrap_drop_down">
+                                        <div class="dropdown rw_selectbox" style="height:56px;">
+                                            <select name="time_zone" id="time_zone">
+                                                <option value="">Select Time Zone</option>
+                                                {%for i in time_zone %}
+                                                <option value="{{i.id}}">{{i.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rw_form_inputs">
+                                    <label class="rw_form_label">Country</label>
+                                    <div class="rw_bootstrap_drop_down">
+                                        <div class="dropdown rw_selectbox" style="height:56px;">
+                                            <select name="country" id="country">
+                                                <option value="">Select Country</option>
+                                                {%for j in country %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rw_checkbox ">
+                                    <input type="checkbox" id="checkbox" class="check_input" checked>
+                                    <label for="checkbox">Send welcome email with account details</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <ul class="modal_btns">
+                            <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
+                            <li><input type="submit" id="add_btn" value="add" class="modal_btn" style="border:none;"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/select2.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>

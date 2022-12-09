@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Admin twilio</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+</head>
+<body>
+    <header class="rw_header_wrapper">
+        <div class="rw_header_inner">            
+            <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                <h3 >The One Media</h3>
+                <p>Agency Account</p>
+            </div>
+            <div class="header_profile">
+                <a href="javascript:;">
+                    <h4>Jones Ferdinand</h4>
+                    <div class="header_profile_image">
+                        <img src="../assets/images/profile.jpg" alt="image">
+                    </div>
+                </a>
+            </div>
+            <div class="rw_hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="rw_sidebar">
+            <div class="header_logo">
+                <a href="agency_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="agency_dashboard.html" ><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                <li><a href="agency_settings.html" class="active"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="rw_inner_area rw_inner_form_area rw_modal_backdrop">
+        <div class="rw_tabs">
+            <ul class="nav rw_tab_ul" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a href="javascript:;" class="active tab_link" id="account_settings_tab" data-bs-toggle="tab" data-bs-target="#account_settings" role="tab" >account settings</a>                  
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="javascript:;" class="tab_link" id="account_twili_tab" data-bs-toggle="tab" data-bs-target="#account_twilio" role="tab"  aria-selected="false">twilio</a>
+                </li>
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="account_settings" role="tabpanel" >
+                    <div class="rw_inner_form_inner_area ">
+                        <div class="rw_inn_form_box">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Business Name</label>
+                                        <div class="rw_input">
+                                            <input type="text" placeholder="Business Name" value="The One Media">
+                                            <span class="input_icon business"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Business Email</label>
+                                        <div class="rw_input">
+                                            <input type="email" placeholder="Enter e-mail">
+                                            <span class="input_icon email"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Business Phone</label>
+                                        <div class="rw_input">
+                                            <input type="number" class="phone_input" placeholder="Business Phone">
+                                            <span class="input_icon phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">time zone</label>
+                                        <div class="rw_bootstrap_drop_down">
+                                            <div class="dropdown">
+                                                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  Select Time Zone
+                                                </button>
+                                                <ul class="dropdown-menu" >
+                                                  <li><a class="dropdown-item" href="#">JST</a></li>
+                                                  <li><a class="dropdown-item" href="#">NPT</a></li>
+                                                  <li><a class="dropdown-item" href="#">IST</a></li>
+                                                  <li><a class="dropdown-item" href="#">EST</a></li>
+                                                  <li><a class="dropdown-item" href="#">GST</a></li>
+                                                  <li><a class="dropdown-item" href="#">AFT</a></li>
+                                                </ul>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Whitelabel Domain</label>
+                                        <div class="rw_input">
+                                            <input type="url" placeholder="Whitelabel Domain">
+                                            <span class="input_icon link"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rw_inn_form_box">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-12">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">address</label>
+                                        <div class="rw_input">
+                                            <input type="text" placeholder="Enter address" >
+                                            <span class="input_icon location"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">City</label>
+                                        <div class="rw_input">
+                                            <input type="text" placeholder="City">
+                                            <span class="input_icon"></span>
+                                        </div>
+                                        <!-- <div class="rw_dropdown">                                        
+                                            <div class="select_dropdown">
+                                                <span class="input_icon"><img src="../assets/images/icons/caret.svg" alt="caret"></span>
+                                                <select  >
+                                                    <option value="" class="drop_option">Choose City</option>
+                                                    <option value="">Indore</option>
+                                                    <option value="">Bhopal</option>
+                                                    <option value="">Dewas</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>  
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Country</label>
+                                        <div class="rw_bootstrap_drop_down">
+                                            <div class="dropdown">
+                                                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  Select Country
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                  <li><a class="dropdown-item" href="#">Ind</a></li>
+                                                  <li><a class="dropdown-item" href="#">Pak</a></li>
+                                                  <li><a class="dropdown-item" href="#">Eng</a></li>
+                                                  <li><a class="dropdown-item" href="#">Eng</a></li>
+                                                  <li><a class="dropdown-item" href="#">Eng</a></li>
+                                                  <li><a class="dropdown-item" href="#">Eng</a></li>
+                                                </ul>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">State</label>
+                                        <div class="rw_bootstrap_drop_down">
+                                            <div class="dropdown">
+                                                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Select State/Region
+                                                </button>
+                                                <ul class="dropdown-menu" >
+                                                  <li><a class="dropdown-item" href="#">Mp</a></li>
+                                                  <li><a class="dropdown-item" href="#">Up</a></li>
+                                                  <li><a class="dropdown-item" href="#">Ap</a></li>
+                                                  <li><a class="dropdown-item" href="#">Ap</a></li>
+                                                  <li><a class="dropdown-item" href="#">Ap</a></li>
+                                                  <li><a class="dropdown-item" href="#">Ap</a></li>
+                                                </ul>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>   
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="rw_form_inputs">
+                                        <label  class="rw_form_label">Zip</label>
+                                        <div class="rw_input">
+                                            <input type="text" placeholder="Zip" value="">
+                                            <span class="input_icon"></span>
+                                        </div>
+                                    </div>
+                                </div>                  
+                            </div>
+                        </div>  
+                        <div class="rw_save_btn">
+                            <a href="javascript:;" class="rw_btn">save changes</a>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="tab-pane" id="account_twilio" role="tabpanel" >
+                    <div class="rw_inner_form_inner_area">
+                        <div class="twilio_master_account">
+                            <div class="mast_ac_title">
+                                <h1>Master Account</h1>
+                            </div>
+                            <div class="rw_inn_form_box">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5">
+                                        <div class="rw_form_inputs">
+                                            <label  class="rw_form_label">Account SID</label>
+                                            <div class="rw_input">
+                                                <input type="text" placeholder="Account SID" value="abcdecdwh87r32ijv4h6ufgb">
+                                                <span class="input_icon copy"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7">
+                                        <div class="rw_form_inputs">
+                                            <label  class="rw_form_label">Auth Token</label>
+                                            <div class="rw_input">
+                                                <input type="password" class="eye_pass" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                <span class="input_icon rw_eye"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="rw_table_wrapper">
+                            <div class="mast_ac_title">
+                                <h1>Client Accounts</h1>
+                            </div>
+                            <div class="rw_table_inner rw_twilio_table ">                
+                                <table id="admin_dashboard_table" class="table rw_pagination" >
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th class="sorting_none">Account SID</th>
+                                            <th class="sorting_none">Auth Token</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>                    
+                                       <tr>
+                                           <td>Starbucks</td>
+                                           <td>
+                                               <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success" ></span></a>
+                                               </div>
+                                           </td>
+                                           <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password"  placeholder="Auth Token" value="12345678912345678912345678912345678" >
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           </td>                                         
+                                       </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starbucks</td>
+                                        <td>
+                                            <div class="ac_sid_td">
+                                                <span>abcdecdwh87r32ijv4h6ufgb</span>
+                                                <a href="javascript:;"><span class="td_icon copy copied-success"></span></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ac_auth_token_td">
+                                                <div class="rw_form_inputs">
+                                                    <div class="rw_input">
+                                                        <input type="password" placeholder="Auth Token" value="12345678912345678912345678912345678">
+                                                        <span class="input_icon rw_eye"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                 </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                        <div class="rw_save_btn">
+                            <a href="javascript:;" class="rw_btn">save changes</a>
+                        </div>                      
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="modal fade twilio_modal rw_modal" id="twilio_edit" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal_title">
+                        <img src="../assets/images/twilio-logo.svg" alt="twilio-logo">
+                        <h4>StarBucks no 1</h4>
+                    </div>
+                  <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/icons/close.svg" alt="close"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="rw_form_inputs">
+                                <label  class="rw_form_label">Account SID</label>
+                                <div class="rw_input">
+                                    <input type="text" placeholder="Account SID" value="abcdecdwh87r32ijv4h6ufgb">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="rw_form_inputs">
+                                <label  class="rw_form_label">Auth Token</label>
+                                <div class="rw_input">
+                                    <input type="password" class="eye_pass" placeholder="Auth Token" value="545646546545">
+                                    <span class="input_icon rw_eye"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                 <ul class="modal_btns">
+                     <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
+                     <li><a href="javascript:;" class="modal_btn" >save</a></li>
+                 </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="offcanvas offcanvas-start agency_offcanvas" tabindex="-1" id="offcanvasExample">
+            <div class="offcanvas-body">
+                <div class="acoount_list_body">
+                    <div class="master_ac">
+                        <h4>Master Account</h4>
+                        <div class="master_ac_inner">
+                            <div class="master_ac_img">
+                                <img src="../assets/images/icons/circle_checkmark.svg" alt="image">
+                            </div>
+                            <div class="master_ac_text">
+                                <h3>The One Media</h3>
+                                <p>Client Login</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client_accounts">
+                        <div class="cs_accounts">
+                            <h4>Client Accounts</h4>
+                            <div class="sorting">
+                                <a href="javascript:;"><img src="../assets/images/icons/sort_up.svg" alt="image"></a>
+                                <a href="javascript:;"><img src="../assets/images/icons/sort_down.svg" alt="image"></a>
+                            </div>
+                        </div>
+                        <div class="search_box">
+                            <input type="text" placeholder="Search accounts..">
+                            <a href="javascript:;" class="inp_icon"><img src="../assets/images/icons/small_search.svg"
+                                    alt="image"></a>
+                        </div>
+                        <ul class="clientuser_list">
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>S</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Starbucks 1</h5>
+                                                <p>Starbucks</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>W</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Walmart 1</h5>
+                                                <p>Walmart</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>G</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Global Fresh Market 1</h5>
+                                                <p>Global Fresh Market</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>D</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Dollar Pantry 1</h5>
+                                                <p>Dollar Pantry</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>F</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Fresh Food Marketplace 1</h5>
+                                                <p>Fresh Food Marketplace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>r</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Rancher’s Grocery 1</h5>
+                                                <p>Rancher’s Grocery</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../client/campaign_settings.html">
+                                    <div class="client_account_box">
+                                        <div class="client_account_box_inner">
+                                            <div class="csbox_icon">
+                                                <h4>J</h4>
+                                            </div>
+                                            <div class="csbox_text">
+                                                <h5>Jamboree Marketplace 1</h5>
+                                                <p>Client Account</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="add_client">+ Add New Client</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>

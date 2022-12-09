@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+    <link rel="stylesheet" href="../assets/css/client_dashboard.css">
+</head>
+<body>
+    <div class="rw_loader three col">
+    <div class="loading-dots">
+        <div class="loading-dots--dot"></div>
+        <div class="loading-dots--dot"></div>
+        <div class="loading-dots--dot"></div>
+        <div class="loading-dots--dot"></div>
+        <div class="loading-dots--dot"></div>
+    </div>
+    </div>
+    <div class="admin_dashboard_page rw_modal_backdrop client_dashboard_page">
+        <header class="rw_header_wrapper">
+            <div class="rw_header_inner">            
+                <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <h3 >StarBucks</h3>
+                    <p>Client Account</p>
+                </div>
+                <div class="header_profile dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <h4>Jones Ferdinand</h4>
+                        <div class="header_profile_image">
+                            <img src="../assets/images/profile.jpg" alt="image">
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu header_profile_dropdown" aria-labelledby="dropdownMenuButton1">
+                        <li><a href="#"><img src="../assets/images/icons/logout.svg" alt=""> Logout</a></li>
+                    </ul>
+                </div>
+                <div class="rw_hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rw_sidebar">
+                <div class="header_logo">
+                    <a href="client_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+                </div>
+                <ul>
+                    <li><a href="client_dashboard.html" class="active"><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                    <li><a href="client_contact.html"><img src="../assets/images/icons/contact.svg" alt="contact"></a></li>
+                    <li><a href="client_list.html"><img src="../assets/images/icons/bar.svg" alt="bar"></a></li>
+                    <li><a href="client_scheduled_broadcast.html"><img src="../assets/images/icons/broadcast.svg" alt="broadcast"></a></li>
+                    <li><a href="campaigns.html" ><img src="../assets/images/icons/campaigns.svg" alt="campaigns"></a></li>
+                    <li><a href="coupon.html"><img src="../assets/images/icons/coupon.svg" alt="coupon"></a></li>
+                    <li><a href="campaign_settings.html"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="rw_inner_area">
+            <div class="rw_dashboard_box_wrapper">               
+                <div class="admin_header">
+                    <div class="dashboard_title">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="rw_selectbox admin_select">
+                        <select  >
+                            <option value="">all</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="rw_dashboard_inner">
+                    <div class="dashboard_box">
+                        <div class="dashboard_box_text">
+                            <h1>11,094</h1>
+                            <p>Contacts</p>
+                        </div>
+                        <div class="dashboard_box_icon">
+                            <img src="../assets/images/icons/contact.svg" alt="image">
+                        </div>
+                    </div>
+                    <div class="dashboard_box">
+                        <div class="dashboard_box_text">
+                            <h1>214</h1>
+                            <p>Total Sales</p>
+                        </div>
+                        <div class="dashboard_box_icon">
+                            <img src="../assets/images/icons/dollor.svg" alt="image">
+                        </div>
+                    </div>
+                    <div class="dashboard_box">
+                        <div class="dashboard_box_text">
+                            <h1>452</h1>
+                            <p>Coupons Claimed</p>
+                        </div>
+                        <div class="dashboard_box_icon">
+                            <img src="../assets/images/icons/coupon.svg" alt="image">
+                        </div>
+                    </div>
+                    <div class="dashboard_box">
+                        <div class="dashboard_box_text">
+                            <h1>388</h1>
+                            <p>Messages Sent</p>
+                        </div>
+                        <div class="dashboard_box_icon">
+                            <img src="../assets/images/icons/message_white.svg" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="rw_table_wrapper">
+                <div class="rw_table_header">
+                    <div class="table_title">
+                        <h3>Newly Added Contacts</h3>
+                    </div>
+                    <div class="add_new">
+                        <a href="javascript:;">+add</a>
+                    </div>
+                </div>
+                <div class="rw_table_inner rw_client_dashboard_table">                
+                    <table id="admin_dashboard_table" class="table rw_pagination" >
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sales</th>
+                                <th class="sorting_none text-center">Status</th>
+                                <th class="text-center sorting_none">actions</th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                           <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td>919999999999</td>
+                            <td>johndoe@gmail.com</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td>$100</td>
+                            <td class="text-center">
+                             <div class="rw_toggle_switch">
+                                 <div class="rw_switch">
+                                   <input type="checkbox"  checked="">
+                                 </div>
+                              </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                         </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>      
+        </div>
+    <div class="offcanvas offcanvas-start agency_offcanvas" tabindex="-1" id="offcanvasExample">
+        <div class="offcanvas-body">
+            <div class="acoount_list_body">
+                <div class="master_ac">
+                    <h4>Master Account</h4>
+                    <div class="master_ac_inner">
+                        <div class="master_ac_img">
+                            <img src="../assets/images/icons/circle_checkmark.svg" alt="image">
+                        </div>
+                        <div class="master_ac_text">
+                            <h3>The One Media</h3>
+                            <p>Client Login</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="client_accounts">
+                    <div class="cs_accounts">
+                        <h4>Client Accounts</h4>
+                        <div class="sorting">
+                            <a href="javascript:;"><img src="../assets/images/icons/sort_up.svg" alt="image"></a>
+                            <a href="javascript:;"><img src="../assets/images/icons/sort_down.svg" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <input type="text" placeholder="Search accounts..">
+                        <a href="javascript:;" class="inp_icon"><img src="../assets/images/icons/small_search.svg"
+                                alt="image"></a>
+                    </div>
+                    <ul class="clientuser_list">
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>S</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Starbucks 1</h5>
+                                            <p>Starbucks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>W</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Walmart 1</h5>
+                                            <p>Walmart</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>G</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Global Fresh Market 1</h5>
+                                            <p>Global Fresh Market</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>D</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Dollar Pantry 1</h5>
+                                            <p>Dollar Pantry</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>F</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Fresh Food Marketplace 1</h5>
+                                            <p>Fresh Food Marketplace</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>r</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Rancher’s Grocery 1</h5>
+                                            <p>Rancher’s Grocery</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>J</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Jamboree Marketplace 1</h5>
+                                            <p>Client Account</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="add_client">+ Add New Client</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>

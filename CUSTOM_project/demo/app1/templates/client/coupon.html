@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Coupons</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+    <link rel="stylesheet" href="../assets/css/admin_user.css">
+    <link rel="stylesheet" href="../assets/css/client_contact.css">
+    <link rel="stylesheet" href="../assets/css/client_list.css">
+    <link rel="stylesheet" href="../assets/css/coupon.css">
+</head>
+<body>
+    <div class="client_contact_page coupon_page rw_modal_backdrop">
+        <header class="rw_header_wrapper">
+            <div class="rw_header_inner">            
+                <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <h3 >Starbucks</h3>
+                    <p>Client Account</p>
+                </div>
+                <div class="header_profile">
+                    <a href="javascript:;">
+                        <h4>Jones Ferdinand</h4>
+                        <div class="header_profile_image">
+                            <img src="../assets/images/profile.jpg" alt="image">
+                        </div>
+                    </a>
+                </div>
+                <div class="rw_hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rw_sidebar">
+                <div class="header_logo">
+                    <a href="client_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+                </div>
+                <ul>
+                    <li><a href="client_dashboard.html" ><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                    <li><a href="client_contact.html"><img src="../assets/images/icons/contact.svg" alt="contact"></a></li>
+                    <li><a href="client_list.html" ><img src="../assets/images/icons/bar.svg" alt="bar"></a></li>
+                    <li><a href="client_scheduled_broadcast.html"><img src="../assets/images/icons/broadcast.svg" alt="broadcast"></a></li>
+                    <li><a href="campaigns.html" ><img src="../assets/images/icons/campaigns.svg" alt="campaigns"></a></li>
+                    <li><a href="coupon.html" class="active"><img src="../assets/images/icons/coupon.svg" alt="coupon"></a></li>
+                    <li><a href="campaign_settings.html"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="rw_inner_area">
+            <div class="rw_dashboard_box_wrapper">
+                <div class="admin_header agency_header">
+                    <div class="dashboard_title">
+                        <h1>Coupons</h1>
+                    </div> 
+                </div>
+            </div> 
+            <div class="admin_user_select">  
+                <div class="rw_selectbox tags">
+                    <select  >
+                        <option value="">Tags</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                    </select>
+                </div>
+               <div class="search_icon_wrapper">                          
+                    <div class="rw_dashboard_btn">
+                        <a href="javascript:;" class="rw_btn" data-bs-toggle="modal" data-bs-target="#add_coupon">+Add coupon</a>
+                    </div>
+               </div>
+            </div> 
+            <div class="rw_table_wrapper">
+                <div class="rw_table_inner rw_admin_user_table rw_coupon_table">                
+                    <table id="rw_cl_contact_table" class="table rw_pagination" >
+                        <thead>
+                            <tr>
+                                <th>Name</th>                                
+                                <th>Date</th>
+                                <th class="text-center">Status</th>
+                                <th class="sorting_none text-center">Discount</th>
+                                <th class="sorting_none text-center">Reedems</th>
+                                <th class=" text-center">sales</th>
+                                <th class="sorting_none text-center">actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>                    
+                           <tr>
+                               <td>10% Offer Coupon</td>
+                               <td>Added on 3 Dec, 2021  03:00 PM</td>
+                               <td><div class="default_label"><p>valid</p></div></td>
+                               <td class="text-center">10%</td>
+                               <td class="text-center">12/24</td>
+                               <td class="text-center">$1000</td>
+                               <td class="text-center">
+                                <div class="action_dropdown">
+                                 <ul class="drop_ul">
+                                     <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                         <ul class="action_submenu">                                             
+                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                         </ul>
+                                     </li>
+                                 </ul>                                    
+                                </div>
+                            </td>
+                           </tr>
+                           <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                         <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>10% Offer Coupon</td>
+                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                            <td><div class="default_label"><p>valid</p></div></td>
+                            <td class="text-center">10%</td>
+                            <td class="text-center">12/24</td>
+                            <td class="text-center">$1000</td>
+                            <td class="text-center">
+                             <div class="action_dropdown">
+                              <ul class="drop_ul">
+                                  <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                      <ul class="action_submenu">                                             
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="../assets/images/icons/edit.svg" alt="image">Edit</a></li>
+                                          <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                          <li><a href="javascript:;" class="remove_action" ><img src="../assets/images/icons/colored_icon/campaing.svg" alt="image">Send Broadcast</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>                                    
+                             </div>
+                         </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
+        </div>
+    <div class="offcanvas offcanvas-start agency_offcanvas" tabindex="-1" id="offcanvasExample">
+        <div class="offcanvas-body">
+            <div class="acoount_list_body">
+                <div class="master_ac">
+                    <h4>Master Account</h4>
+                    <div class="master_ac_inner">
+                        <div class="master_ac_img">
+                            <img src="../assets/images/icons/circle_checkmark.svg" alt="image">
+                        </div>
+                        <div class="master_ac_text">
+                            <h3>The One Media</h3>
+                            <p>Client Login</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="client_accounts">
+                    <div class="cs_accounts">
+                        <h4>Client Accounts</h4>
+                        <div class="sorting">
+                            <a href="javascript:;"><img src="../assets/images/icons/sort_up.svg" alt="image"></a>
+                            <a href="javascript:;"><img src="../assets/images/icons/sort_down.svg" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <input type="text" placeholder="Search accounts..">
+                        <a href="javascript:;" class="inp_icon"><img src="../assets/images/icons/small_search.svg"
+                                alt="image"></a>
+                    </div>
+                    <ul class="clientuser_list">
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>S</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Starbucks 1</h5>
+                                            <p>Starbucks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>W</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Walmart 1</h5>
+                                            <p>Walmart</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>G</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Global Fresh Market 1</h5>
+                                            <p>Global Fresh Market</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>D</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Dollar Pantry 1</h5>
+                                            <p>Dollar Pantry</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>F</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Fresh Food Marketplace 1</h5>
+                                            <p>Fresh Food Marketplace</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>r</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Rancher’s Grocery 1</h5>
+                                            <p>Rancher’s Grocery</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../client/campaign_settings.html">
+                                <div class="client_account_box">
+                                    <div class="client_account_box_inner">
+                                        <div class="csbox_icon">
+                                            <h4>J</h4>
+                                        </div>
+                                        <div class="csbox_text">
+                                            <h5>Jamboree Marketplace 1</h5>
+                                            <p>Client Account</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="add_client">+ Add New Client</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Add Coupon -->
+    <div class="modal fade rw_modal add_contact" id="add_coupon" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal_title">
+                    <h4>Create New Coupon</h4>
+                </div>
+            <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/icons/close.svg" alt="close"></a>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="rw_form_inputs">
+                            <label  class="rw_form_label">Coupon Name</label>
+                            <div class="rw_input">
+                                <input type="text" placeholder="Coupon Name" value="50% Offer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="rw_form_inputs">
+                            <label  class="rw_form_label">Discount type</label>
+                            <div class="rw_bootstrap_drop_down">
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Percentage
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="#">Percentage</a></li>
+                                    <li><a class="dropdown-item" href="#">Rs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="rw_form_inputs">
+                            <label  class="rw_form_label">Discount Value</label>
+                            <div class="rw_input">
+                                <input type="text" placeholder="Discount Value" value="10%">
+                                <span class="input_icon percentage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="rw_form_inputs">
+                                <label  class="rw_form_label">Minimum Spend ($)</label>
+                                <div class="rw_input">
+                                    <input type="text" placeholder="Minimum Spend ($)" value="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="rw_form_inputs rw_date_input">
+                            <label  class="rw_form_label">Valid From</label>
+                            <div class="rw_input">
+                                <input type="text" placeholder="dd/mm/yyyy" id="datepicker">
+                                <span class="input_icon calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="rw_form_inputs rw_date_input">
+                            <label  class="rw_form_label">To</label>
+                            <div class="rw_input">
+                                <input type="text" class="date_disabled" placeholder="dd/mm/yyyy" id="datepicker2" disabled>
+                                <span class="input_icon calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="rw_checkbox ">
+                            <input type="checkbox" id="checkbox" class="check_input" checked="">
+                            <label for="checkbox">No end date</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <ul class="modal_btns">
+                <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
+                <li><a href="javascript:;" class="modal_btn" >create</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    </div>
+    
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>

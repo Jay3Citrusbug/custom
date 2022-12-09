@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Client Broadcast</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/css/custom_select_2.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+    <link rel="stylesheet" href="../assets/css/client_schedule.css">
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../assets/css/broadcast.css">
+</head>
+<body>
+    <div class="trigger_overlays"></div>
+    <div class="admin_dashboard_page">
+        <header class="rw_header_wrapper">
+            <div class="rw_header_inner">            
+                <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <h3 >StarBucks</h3>
+                    <p>Client Account</p>
+                </div>
+                <div class="header_profile">
+                    <a href="javascript:;">
+                        <h4>Jones Ferdinand</h4>
+                        <div class="header_profile_image">
+                            <img src="../assets/images/profile.jpg" alt="image">
+                        </div>
+                    </a>
+                </div>
+                <div class="rw_hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rw_sidebar">
+                <div class="header_logo">
+                    <a href="client_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+                </div>
+                <ul>
+                    <li><a href="client_dashboard.html"><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                    <li><a href="client_contact.html"><img src="../assets/images/icons/contact.svg" alt="contact"></a></li>
+                    <li><a href="client_list.html"><img src="../assets/images/icons/bar.svg" alt="bar"></a></li>
+                    <li><a href="client_scheduled_broadcast.html" class="active"><img src="../assets/images/icons/broadcast.svg" alt="broadcast"></a></li>
+                    <li><a href="campaigns.html" ><img src="../assets/images/icons/campaigns.svg" alt="campaigns"></a></li>
+                    <li><a href="coupon.html"><img src="../assets/images/icons/coupon.svg" alt="coupon"></a></li>
+                    <li><a href="campaign_settings.html"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="rw_inner_area rw_inner_form_area rw_modal_backdrop">
+            <div class="rw_tabs">
+                <ul class="nav rw_tab_ul" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a href="javascript:;" class="active tab_link" id="send_broadcast_tab" data-bs-toggle="tab" data-bs-target="#send_broadcast" role="tab"  aria-selected="true">Send Broadcast</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="javascript:;" class="tab_link" id="schedule_tab" data-bs-toggle="tab" data-bs-target="#schedule" role="tab"  aria-selected="false">Scheduled</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="javascript:;" class="tab_link" id="sent_tab" data-bs-toggle="tab" data-bs-target="#sent" role="tab"  aria-selected="false">Sent</a>
+                    </li>
+                  </ul>
+                  
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="send_broadcast" role="tabpanel" >
+                       <div class="rw_inner_form_inner_area">
+                            <div class="rw_broadcast_wrapper">
+                                <div class="rw_broadcast_inner">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="broadcast_left">
+                                                <div class="broadcast_head">
+                                                    <span>1</span>
+                                                    <div class="title">
+                                                        <h4>Message</h4>
+                                                        <p>Enter your message text here</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="broadcast_right">
+                                                <div class="broadcast_title">
+                                                    <h3>Message Text</h3>
+                                                </div>
+                                                <div class="text_input_box">
+                                                    <textarea ></textarea>
+                                                    <div class="text_input_box_content">
+                                                        <div class="input_total_word">
+                                                            <p>50/200 characters</p>
+                                                        </div>
+                                                        <div class="input_icons">
+                                                            <ul>
+                                                                <li><a href="javascript:;" title="Link"><img src="../assets/images/icons/link_gradient.svg" alt="image"></a></li>
+                                                                <li><a href="javascript:;" title="Coupon"><img src="../assets/images/icons/colored_icon/coupon.svg" alt="image"></a></li>
+                                                                <li>
+                                                                    <a href="javascript:;" title="Add Tag" class="add_tag"><img src="../assets/images/icons/add_box.svg" alt="image"></a>
+                                                                    <ul class="input_submenu">
+                                                                        <li><a href="javascript:;" class="click_1"><img src="../assets/images/icons/message.svg" alt="image">Text
+                                                                                Message</a></li>
+                                                                        <li><a href="javascript:;" class="click_2"><img src="../assets/images/icons/time.svg" alt="image">Time
+                                                                                Delay</a></li>
+                                                                        <li><a href="javascript:;" class="click_3"><img src="../assets/images/icons/wait.svg" alt="image">Wait
+                                                                                Until</a></li>
+                                                                        <li><a href="javascript:;" class="click_4"><img src="../assets/images/icons/tag.svg" alt="image">Tag</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><a href="javascript:;" title="Emoji"><img src="../assets/images/icons/sentiment_satisfied.svg" alt="image"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rw_broadcast_inner">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="broadcast_left">
+                                                <div class="broadcast_head">
+                                                    <span>2</span>
+                                                    <div class="title">
+                                                        <h4>Recipients</h4>
+                                                        <p>Choose your message recipients</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="broadcast_right">
+                                                <div class="broadcast_title">
+                                                    <h3>Choose Recipients</h3>
+                                                </div>
+                                                <ul class="">
+                                                    <li>
+                                                        <div class="rw_radio_btns">
+                                                            <input type="radio" name="choose_recipents" id="all_contact" >
+                                                            <label for="all_contact">Send to all Contacts (1,345)</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rw_radio_btns">
+                                                            <input type="radio" name="choose_recipents" id="send_list" checked>
+                                                            <label for="send_list">Send to List(s)</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="rw_form_inputs">
+                                                    <label class="rw_form_label">List Name</label>
+                                                    <div class="rw_select2">
+                                                        <span class="input_icon caret"></span>
+                                                        <select  id="multiple" class="form-control" multiple>
+                                                            <option >birthday</option>
+                                                            <option >Anniversary</option>
+                                                            <option>Anniversary</option>
+                                                        </select>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rw_broadcast_inner">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="broadcast_left schedule_left">
+                                                <div class="broadcast_head">
+                                                    <span>3</span>
+                                                    <div class="title">
+                                                        <h4>Schedule</h4>
+                                                        <p>Choose when to send your message</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="broadcast_right">
+                                                <div class="broadcast_title">
+                                                    <h3>Schedule Options</h3>
+                                                </div>
+                                                <ul class="">
+                                                    <li>
+                                                        <div class="rw_radio_btns">
+                                                            <input type="radio" name="schedule_options" id="send_now" >
+                                                            <label for="send_now">Send Now</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rw_radio_btns">
+                                                            <input type="radio" name="schedule_options" id="date_time" checked>
+                                                            <label for="date_time">Choose Date and Time</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="rw_form_inputs date_input">
+                                                    <label class="rw_form_label">Date</label>
+                                                    <div class="rw_input">
+                                                        <input type="text" placeholder="dd/mm/yyyy"  id="datepicker">
+                                                        <span class="input_icon calendar"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="rw_form_inputs">
+                                                    <label class="rw_form_label">time</label>
+                                                    <div class="choose_time">
+                                                        <!-- <div class="rw_input">
+                                                            <input type="number" placeholder="Hours" value="2" min="1" class="quanti-invitati">
+                                                            <ul class="input_spinner">
+                                                                <li class="quanti-invitati-op" data-op="-1"><img src="../assets/images/icons/sort_up.svg" alt=""></li>
+                                                                <li class="quanti-invitati-op" data-op="1"><img src="../assets/images/icons/sort_down.svg" alt=""></li>
+                                                            </ul>
+                                                        </div>
+                                                        <span>:</span>
+                                                        <div class="rw_input">
+                                                            <input type="number" value="5" min="1" placeholder="Minute" class="quanti-invitati2">
+                                                            <ul class="input_spinner">
+                                                                <li class="quanti-invitati-op2" data-op="-1"><img src="../assets/images/icons/sort_up.svg" alt=""></li>
+                                                                <li class="quanti-invitati-op2" data-op="1"><img src="../assets/images/icons/sort_down.svg" alt=""></li>
+                                                            </ul>
+                                                        </div> -->
+                                                        <div class="rw_input">
+                                                            <div class="rw_dropdown">
+                                                                <div class="select_dropdown">
+                                                                    <select>
+                                                                        <option value="am">Hour</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <span>:</span>
+                                                        <div class="rw_input">
+                                                            <div class="rw_dropdown">
+                                                                <div class="select_dropdown">
+                                                                    <select>
+                                                                        <option value="am">Minutes</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <span>:</span>
+                                                        <div class="rw_input">
+                                                            <div class="rw_dropdown am_pm_drop">
+                                                                <div class="select_dropdown">
+                                                                    <select  >
+                                                                        <option value="am">AM</option>
+                                                                        <option value="pm">PM</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rw_save_btn">
+                                    <a href="javascript:;" class="rw_btn" data-bs-toggle="modal" data-bs-target="#send_broadcast_popoup">Send Broadcast</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="schedule" role="tabpanel" >
+                        <div class="rw_inner_form_inner_area">
+                            <div class="rw_table_wrapper">
+                                <div class="rw_table_inner rw_cl_schedule_broadcast_table">                
+                                    <table id="admin_dashboard_table" class="table rw_pagination" >
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Message</th>
+                                                <th class="text-center">Contacts</th>
+                                                <th class="sorting_none text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody> 
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Scheduled for 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="tab-pane " id="sent" role="tabpanel" >
+                        <div class="rw_inner_form_inner_area">
+                            <div class="rw_table_wrapper">
+                                <div class="rw_table_inner rw_cl_schedule_broadcast_table rw_sent_broad_table">                
+                                    <table id="rw_sent_brd_table" class="table rw_pagination" >
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Message</th>
+                                                <th class="text-center">Contacts</th>
+                                                <th class="sorting_none text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody> 
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sent on 3 Dec, 2021  03:00 PM</td>
+                                                <td><p>{First Name} Treat yourself for new year😄 All personal training....</p></td>
+                                                <td class="text-center">1,234</td>
+                                                <td class="text-center">
+                                                    <div class="action_dropdown">
+                                                        <ul class="drop_ul">
+                                                            <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="../assets/images/icons/action.svg" alt="action"></a>
+                                                                <ul class="action_submenu">
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_edit"><img src="../assets/images/icons/edit.svg" alt="image">edit</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="../assets/images/icons/delete.svg" alt="image">delete</a></li>
+                                                                    <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#schedule_default"><img src="../assets/images/icons/make_default.svg" alt="image">Make Default</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                  </div>
+            </div>
+    
+            <div class="modal fade twilio_modal rw_modal" id="twilio_edit" tabindex="-1"  aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal_title">
+                            <img src="../assets/images/twilio-logo.svg" alt="twilio-logo">
+                            <h4>StarBucks no 1</h4>
+                        </div>
+                      <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/icons/close.svg" alt="close"></a>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rw_form_inputs">
+                                    <label  class="rw_form_label">Account SID</label>
+                                    <div class="rw_input">
+                                        <input type="text" placeholder="Account SID" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rw_form_inputs">
+                                    <label  class="rw_form_label">Auth Token</label>
+                                    <div class="rw_input">
+                                        <input type="password" placeholder="Auth Token" value="545646546545">
+                                        <span class="input_icon rw_eye"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                     <ul class="modal_btns">
+                         <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
+                         <li><a href="javascript:;" class="modal_btn" >save</a></li>
+                     </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="offcanvas offcanvas-start agency_offcanvas" tabindex="-1" id="offcanvasExample">
+                <div class="offcanvas-body">
+                    <div class="acoount_list_body">
+                        <div class="master_ac">
+                            <h4>Master Account</h4>
+                            <div class="master_ac_inner">
+                                <div class="master_ac_img">
+                                    <img src="../assets/images/icons/circle_checkmark.svg" alt="image">
+                                </div>
+                                <div class="master_ac_text">
+                                    <h3>The One Media</h3>
+                                    <p>Client Login</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client_accounts">
+                            <div class="cs_accounts">
+                                <h4>Client Accounts</h4>
+                                <div class="sorting">
+                                    <a href="javascript:;"><img src="../assets/images/icons/sort_up.svg" alt="image"></a>
+                                    <a href="javascript:;"><img src="../assets/images/icons/sort_down.svg" alt="image"></a>
+                                </div>
+                            </div>
+                            <div class="search_box">
+                                <input type="text" placeholder="Search accounts..">
+                                <a href="javascript:;" class="inp_icon"><img src="../assets/images/icons/small_search.svg"
+                                        alt="image"></a>
+                            </div>
+                            <ul class="clientuser_list">
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>S</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Starbucks 1</h5>
+                                                    <p>Starbucks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>W</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Walmart 1</h5>
+                                                    <p>Walmart</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>G</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Global Fresh Market 1</h5>
+                                                    <p>Global Fresh Market</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>D</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Dollar Pantry 1</h5>
+                                                    <p>Dollar Pantry</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>F</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Fresh Food Marketplace 1</h5>
+                                                    <p>Fresh Food Marketplace</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>r</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Rancher’s Grocery 1</h5>
+                                                    <p>Rancher’s Grocery</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../client/campaign_settings.html">
+                                        <div class="client_account_box">
+                                            <div class="client_account_box_inner">
+                                                <div class="csbox_icon">
+                                                    <h4>J</h4>
+                                                </div>
+                                                <div class="csbox_text">
+                                                    <h5>Jamboree Marketplace 1</h5>
+                                                    <p>Client Account</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="add_client">+ Add New Client</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Delete Popup -->
+        <div class="modal fade rw_modal delete_popup" id="delete_confirm_popup" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal_title">
+                        <h4>Delete Contacts</h4>
+                    </div>
+                <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/icons/close.svg" alt="close"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="delete_modal_body">
+                        <img src="../assets/images/delete_popup.svg" alt="">
+                        <h1>Delete 1,239 Contacts</h1>
+                        <p>Are you sure you want to delete 1239 contacts?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <ul class="modal_btns">
+                    <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">no</a></li>
+                    <li><a href="javascript:;" class="modal_btn" >yes</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+<!-- Send Broadcast Popup-->
+    <div class="modal fade rw_modal delete_popup send_broadcast_modal" id="send_broadcast_popoup" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal_title">
+                    <h4>Send Broadcast</h4>
+                </div>
+            <a href="javascript:;" class="popup_close" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/icons/close.svg" alt="close"></a>
+            </div>
+            <div class="modal-body">
+                <div class="delete_modal_body">
+                    <img src="../assets/images/broadcast-email.svg" alt="broadcast-email">
+                    <h1>Send Broadcast</h1>
+                    <p>Send broadcast to list <span>‘The list name’</span> on<span> 26 december</span> at <span>12:00 AM</span></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <ul class="modal_btns">
+                <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">Cancel</a></li>
+                <li><a href="javascript:;" class="modal_btn" >Send</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/select2.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>

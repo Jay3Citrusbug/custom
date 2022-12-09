@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" href="../assets/fonts/graphik_font.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_dashboard.css">
+    <link rel="stylesheet" href="../assets/css/agency_settings.css">
+    <link rel="stylesheet" href="../assets/css/client_dashboard.css">
+
+    
+
+</head>
+<body>  
+    <div class="admin_dashboard_page rw_modal_backdrop client_dashboard_page">
+        <header class="rw_header_wrapper">
+            <div class="rw_header_inner">            
+                <div class="header_title agency_header_title" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <h3 >StarBucks</h3>
+                    <p>Client Account</p>
+                </div>
+                <div class="header_profile dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <h4>Jones Ferdinand</h4>
+                        <div class="header_profile_image">
+                            <img src="../assets/images/profile.jpg" alt="image">
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu header_profile_dropdown" aria-labelledby="dropdownMenuButton1">
+                        <li><a href="#"><img src="../assets/images/icons/logout.svg" alt=""> Logout</a></li>
+                    </ul>
+                </div>
+                <div class="rw_hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rw_sidebar">
+                <div class="header_logo">
+                    <a href="client_dashboard.html"><img src="../assets/images/logo.svg" alt="logo"></a>
+                </div>
+                <ul>
+                    <li><a href="client_dashboard.html" class="active"><img src="../assets/images/icons/dashboard.svg" alt="dashboard"></a></li>
+                    <li><a href="client_contact.html"><img src="../assets/images/icons/contact.svg" alt="contact"></a></li>
+                    <li><a href="client_list.html"><img src="../assets/images/icons/bar.svg" alt="bar"></a></li>
+                    <li><a href="client_scheduled_broadcast.html"><img src="../assets/images/icons/broadcast.svg" alt="broadcast"></a></li>
+                    <li><a href="campaigns.html" ><img src="../assets/images/icons/campaigns.svg" alt="campaigns"></a></li>
+                    <li><a href="coupon.html"><img src="../assets/images/icons/coupon.svg" alt="coupon"></a></li>
+                    <li><a href="campaign_settings.html"><img src="../assets/images/icons/settings.svg" alt="settings"></a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="rw_inner_area">
+            <div class="mb-5" style="margin-top: 100px;">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-danger">Error</button>
+            </div>
+            <div class="rw_suc_err_wrapper rw_success_toast">
+                <div class="rw_suc_err_block ">
+                    <img src="../assets/images/icons/check_white.svg" alt="Done">
+                    <p>Your changes have been saved</p>
+                    <a href="javascript:;" class="close success_close"><img src="../assets/images/icons/close_white.svg" alt="close"></a>
+                </div>
+            </div>
+            <div class="rw_suc_err_wrapper rw_error_toast">
+                <div class="rw_suc_err_block ">
+                    <img src="../assets/images/icons/error.svg" alt="error">
+                    <p>There was a problem saving your changes</p>
+                    <a href="javascript:;" class="close error_close"><img src="../assets/images/icons/close_white.svg" alt="close"></a>
+                </div>
+            </div>
+         </div>
+    </div>
+    
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+</html>
