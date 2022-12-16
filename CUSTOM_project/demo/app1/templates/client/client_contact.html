@@ -50,7 +50,7 @@
                 </div>
                 <ul>
                     <li><a href="client_dashboard.html" ><img src="{% static 'images/icons/dashboard.svg' %}" alt="dashboard"></a></li>
-                    <li><a href="client_contact.html" class="active"><img src="{% static 'images/icons/contact.svg' %}" alt="contact"></a></li>
+                    <li><a href="{% url 'listdata' %}"><img src="{% static 'images/icons/contact.svg' %}" alt="contact"></a></li>
                     <li><a href="client_list.html" ><img src="{% static 'images/icons/bar.svg' %}" alt="bar"></a></li>
                     <li><a href="client_scheduled_broadcast.html"><img src="{% static 'images/icons/broadcast.svg' %}" alt="broadcast"></a></li>
                     <li><a href="campaigns.html" ><img src="{% static 'images/icons/campaigns.svg' %}" alt="campaigns"></a></li>
@@ -110,17 +110,18 @@
                                 <th class="sorting_none text-center">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>                    
+                        <tbody>
+                        {% for i in data %}                   
                            <tr>
                                <td>
                                 <div class="rw_checkbox ">
                                     <input type="checkbox" id="checkbox2" class="check_input" checked>
-                                    <label for="checkbox2">919999999999</label>
+                                    <label for="checkbox2">{{i.phone}}</label>
                                 </div>
                                </td>
-                               <td>johndoe@gmail.com</td>
-                               <td>Added on 3 Dec, 2021  03:00 PM</td>
-                               <td class="text-center">$100</td>
+                               <td>{{i.firstname}}</td>
+                               <td>{{i.lastname}}</td>
+                               <td class="text-center">{{i.bitrh_date}}</td>
                                <td class="text-center">
                                    <div class="rw_toggle_switch">
                                       <div class="rw_switch">
@@ -144,366 +145,8 @@
                                 </div>
                             </td>
                            </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox3" class="check_input" checked>
-                                    <label for="checkbox3">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox5" class="check_input" checked>
-                                    <label for="checkbox5">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox6" class="check_input" checked>
-                                    <label for="checkbox6">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox7" class="check_input" checked>
-                                    <label for="checkbox7">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox8" class="check_input" checked>
-                                    <label for="checkbox8">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox9" class="check_input" checked>
-                                    <label for="checkbox9">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox10" class="check_input" checked>
-                                    <label for="checkbox10">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="rw_checkbox ">
-                                    <input type="checkbox" id="checkbox11" class="check_input" checked>
-                                    <label for="checkbox11">+99 9999 9999 99</label>
-                                </div>
-                            </td>
-                            <td>johndoe@gmail.com</td>
-                            <td>Added on 3 Dec, 2021 03:00 PM</td>
-                            <td class="text-center">$100</td>
-                            <td class="text-center">
-                                <div class="rw_toggle_switch">
-                                    <div class="rw_switch">
-                                        <input type="checkbox"  checked>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="action_dropdown">
-                                    <ul class="drop_ul">
-                                        <li class="position-relative"><a href="javascript:;" class="action_btn"><img
-                                                    src="{% static 'images/icons/action.svg' %}" alt="action"></a>
-                                            <ul class="action_submenu">
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_campaigns"><img
-                                                            src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to
-                                                        Campaign</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}"
-                                                            alt="image">Add to List</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}"
-                                                            alt="image">Send Message</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}"
-                                                            alt="image">Edit</a></li>
-                                                <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal"
-                                                        data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}"
-                                                            alt="image">delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                        {% endfor %}
+                        
                         </tbody>
                     </table>
                 </div>
@@ -707,7 +350,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    {% comment %} <div class="col-md-12">
                         <div class="rw_form_inputs rw_select2_inputs">
                             <label class="rw_form_label">Tags</label>
                             <div class="rw_select2">
@@ -755,7 +398,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
             <div class="modal-footer">
@@ -769,6 +412,8 @@
     </div>
 <!-- Add contact Popup -->
     <div class="modal fade rw_modal add_contact" id="add_contact_tolist" tabindex="-1"  aria-hidden="true">
+        <form  action="{% url 'savedata' %}" method="post" enctype="multipart/form-data" autocomplete="off">
+        {% csrf_token %}
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -783,7 +428,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
-                                <input type="number" placeholder="Phone Number" value="919999999999">
+                                <input type="number" placeholder="Phone Number" name="number">
                                 <span class="input_icon phone"></span>
                             </div>
                         </div>
@@ -792,7 +437,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">First Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="First Name" value="john">
+                                <input type="text" placeholder="First Name" value="john" name="firstname">
                             </div>
                         </div>
                     </div>
@@ -800,7 +445,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">Last Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="Last Name" value="due">
+                                <input type="text" placeholder="Last Name" value="due"  name="lastname">
                             </div>
                         </div>
                     </div>
@@ -808,7 +453,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label  class="rw_form_label">Birthday</label>
                             <div class="rw_input">
-                                <input type="text" class="date_input" placeholder="mm-dd" id="rw_date_month3" >
+                                <input type="text" class="date_input" placeholder="mm-dd" id="rw_date_month3"  name="birthday">
                                 <span class="input_icon calendar"></span>
                             </div>
                         </div>
@@ -817,72 +462,24 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label  class="rw_form_label">Anniversary</label>
                             <div class="rw_input">
-                                <input type="text" class="date_input" placeholder="mm-dd" id="rw_date_month4">
+                                <input type="text" class="date_input" placeholder="mm-dd" id="rw_date_month4" name="anniversary">
                                 <span class="input_icon calendar"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="rw_form_inputs rw_select2_inputs">
-                            <label class="rw_form_label">Tags</label>
-                            <div class="rw_select2">
-                                <span class="input_icon caret"></span>
-                                <select id="add_cont" class="js-states form-control" multiple>
-                                    <option selected="selected">birthday</option>
-                                    <option selected="selected">wedding</option>
-                                    <option >Anniversary</option>
-                                    <option>AN</option>
-                                    <option>AB</option>
-                                    <option>ABBH</option>
-                                    <option>ABOL</option>
-                                </select>
-                            </div>
-                        </div>                         
-                    </div> 
-                    <div class="col-md-6">
-                        <div class="rw_form_inputs">
-                            <label  class="rw_form_label">Override Time Zone</label>
-                            <div class="rw_bootstrap_drop_down">
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
-                                        EST
-                                    </button>
-                                    <ul class="dropdown-menu" >
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    <li><a class="dropdown-item" href="#">EST</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="rw_form_inputs rw_select2_inputs active_camp">
-                            <label class="rw_form_label">Active Campaigns</label>
-                            <div class="rw_select2">
-                                <span class="input_icon caret"></span>
-                                <select id="active_campaigns" class="js-states form-control" multiple>
-                                    <option selected="selected">Discount Offer</option>
-                                    <option >wedding</option>
-                                    <option>Anniversary</option>
-                                    <option>Anniversary</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href="javascript:;" class="modal_btn" >add</a></li>
+                {% comment %} <li><a href="javascript:;" class="modal_btn" type="submit" >add</a></li> {% endcomment %}
+                <input type="submit" value="add" class="modal_btn">
             </ul>
             </div>
         </div>
         </div>
+        </form>
     </div>
 <!-- Add campaigns -->
     <div class="modal fade rw_modal client_list_modal client_list_modal_2" id="add_campaigns" tabindex="-1"  aria-hidden="true">
@@ -1115,7 +712,8 @@
     <script src="{% static 'js/dataTables.bootstrap5.min.js' %}"></script>
     <script src="{% static 'js/jquery-ui.js' %}"></script>
     <script src="{% static 'js/select2.min.js' %}"></script>
-   <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
    
 </body>
 </html>

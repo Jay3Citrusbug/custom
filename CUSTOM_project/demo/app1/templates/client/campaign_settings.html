@@ -48,7 +48,7 @@
                 </div>
                 <ul>
                     <li><a href="client_dashboard.html" ><img src="{% static '/images/icons/dashboard.svg' %}" alt="dashboard"></a></li>
-                    <li><a href="{% url 'contact' %}"><img src="{% static '/images/icons/contact.svg' %}" alt="contact"></a></li>
+                    <li><a href="{% url 'listdata' %}"><img src="{% static '/images/icons/contact.svg' %}" alt="contact"></a></li>
                     <li><a href="client_list.html"><img src="{% static '/images/icons/bar.svg' %}" alt="bar"></a></li>
                     <li><a href="client_scheduled_broadcast.html"><img src="{% static '/images/icons/broadcast.svg' %}" alt="broadcast"></a></li>
                     <li><a href="campaigns.html"><img src="{% static '/images/icons/campaigns.svg' %}" alt="campaigns"></a></li>
@@ -1306,7 +1306,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">Field Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="eg: Event, Notes, Budget, Gender" value="">
+                                <input type="text" name="fieldname" placeholder="eg: Event, Notes, Budget, Gender" value="">
                             </div>
                         </div>
                     </div>
