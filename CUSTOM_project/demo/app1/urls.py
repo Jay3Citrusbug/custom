@@ -7,7 +7,13 @@ urlpatterns = [
     path('custom/',views.custom,name="custom"),
     # path('',views.login,name="login")
     path('savedata/',views.savedata,name="savedata"),
+    path('fielddata/',views.fielddata,name="fielddata"),
+
     path('',views.list,name="listdata"),
+    path('customlist/',views.customlist,name="customlist"),
+    
+    path('deletecontact/<int:id>/',views.deletecontact,name="deletecontact"),
+    path('editcontact/<int:id>/',views.editcontact,name="editcontact"),
 
     
 ]

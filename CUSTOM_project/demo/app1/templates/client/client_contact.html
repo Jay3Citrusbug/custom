@@ -55,7 +55,7 @@
                     <li><a href="client_scheduled_broadcast.html"><img src="{% static 'images/icons/broadcast.svg' %}" alt="broadcast"></a></li>
                     <li><a href="campaigns.html" ><img src="{% static 'images/icons/campaigns.svg' %}" alt="campaigns"></a></li>
                     <li><a href="coupon.html"><img src="{% static 'images/icons/coupon.svg' %}" alt="coupon"></a></li>
-                    <li><a href="{% url 'custom' %}"><img src="{% static 'images/icons/settings.svg' %}" alt="settings"></a></li>
+                    <li><a href="{% url 'customlist' %}"><img src="{% static 'images/icons/settings.svg' %}" alt="settings"></a></li>
                 </ul>
             </div>
         </header>
@@ -103,9 +103,9 @@
                                         <label for="Number1">Number</label>
                                     </div>
                                 </th>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th class="text-center">Sales</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th class="text-center">Date</th>
                                 <th class="sorting_none text-center">status</th>
                                 <th class="sorting_none text-center">Actions</th>
                             </tr>
@@ -137,8 +137,8 @@
                                              <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#add_campaigns"><img src="{% static 'images/icons/colored_icon/campaing.svg' %}" alt="image">Add to Campaign</a></li>
                                              <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#add_list"><img src="{% static 'images/icons/colored_icon/bar.svg' %}" alt="image">Add to List</a></li>
                                              <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#message_popup"><img src="{% static 'images/icons/message.svg' %}" alt="image">Send Message</a></li>
-                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#edit_popup"><img src="{% static 'images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup"><img src="{% static 'images/icons/delete.svg' %}" alt="image">delete</a></li>
+                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#edit_popup-{{forloop.counter}}"><img src="{% static 'images/icons/edit.svg' %}" alt="image">Edit</a></li>
+                                             <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#delete_confirm_popup-{{forloop.counter}}"><img src="{% static 'images/icons/delete.svg' %}" alt="image">delete</a></li>
                                          </ul>
                                      </li>
                                  </ul>                                    
@@ -296,9 +296,12 @@
         </div>
     </div>
     <!-- Edit contact Popup -->
-    <div class="modal fade rw_modal add_contact edit_contacts" id="edit_popup" tabindex="-1"  aria-hidden="true">
+    {% for i in data %}
+    <div class="modal fade rw_modal add_contact edit_contacts" id="edit_popup-{{forloop.counter}}" tabindex="-1"  aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+            <form  action="{% url 'editcontact' i.id %}" method="post" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
             <div class="modal-header">
                 <div class="modal_title">
                     <h4>Edit Contact</h4>
@@ -311,7 +314,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
-                                <input type="number" placeholder="Phone Number" value="919999999999">
+                                <input type="number" name="number" placeholder="Phone Number" value="{{i.phone}}">
                                 <span class="input_icon phone"></span>
                             </div>
                         </div>
@@ -320,7 +323,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">First Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="First Name" value="john">
+                                <input type="text" name="firstname" placeholder="First Name" value="{{i.firstname}}">
                             </div>
                         </div>
                     </div>
@@ -328,7 +331,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Last Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="Last Name" value="due">
+                                <input type="text" name="lastname" placeholder="Last Name" value="{{i.lastname}}">
                             </div>
                         </div>
                     </div>
@@ -336,7 +339,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label class="rw_form_label">Birthday</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="mm-dd" id="rw_date_month1">
+                                <input type="text" name="birthday" placeholder="mm-dd" id="rw_date_month1" value="{{i.bitrh_date}}">
                                 <span class="input_icon calendar"></span>
                             </div>
                         </div>
@@ -345,71 +348,26 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label class="rw_form_label">Anniversary</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="mm-dd" id="rw_date_month2">
+                                <input type="text" name="anniversary" placeholder="mm-dd" id="rw_date_month2" value="{{i.anni_date}}">
                                 <span class="input_icon calendar"></span>
                             </div>
                         </div>
                     </div>
-                    {% comment %} <div class="col-md-12">
-                        <div class="rw_form_inputs rw_select2_inputs">
-                            <label class="rw_form_label">Tags</label>
-                            <div class="rw_select2">
-                                <span class="input_icon caret"></span>
-                                <select id="edit_cont" class="js-states form-control" multiple>
-                                    <option selected="selected">birthday</option>
-                                    <option selected="selected">wedding</option>
-                                    <option>Anniversary</option>
-                                    <option>Anniversary</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="rw_form_inputs">
-                            <label class="rw_form_label">Override Time Zone</label>
-                            <div class="rw_bootstrap_drop_down">
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" 
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        EST
-                                    </button>
-                                    <ul class="dropdown-menu" >
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                        <li><a class="dropdown-item" href="#">EST</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="rw_form_inputs rw_select2_inputs active_camp">
-                            <label class="rw_form_label">Active Campaigns</label>
-                            <div class="rw_select2">
-                                <span class="input_icon caret"></span>
-                                <select id="edit_active_camp" class="js-states form-control" multiple>
-                                    <option selected="selected">Discount Offer</option>
-                                    <option>wedding</option>
-                                    <option>Anniversary</option>
-                                    <option>Anniversary</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> {% endcomment %}
                 </div>
             </div>
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href="javascript:;" class="modal_btn" >Save</a></li>
+                {% comment %} <li><a href="javascript:;" class="modal_btn" >Save</a></li> {% endcomment %}
+                <input type="submit" value="Save" class="modal_btn">
+
             </ul>
             </div>
+            </form>
         </div>
         </div>
     </div>
+    {% endfor %}
 <!-- Add contact Popup -->
     <div class="modal fade rw_modal add_contact" id="add_contact_tolist" tabindex="-1"  aria-hidden="true">
         <form  action="{% url 'savedata' %}" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -437,7 +395,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">First Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="First Name" value="john" name="firstname">
+                                <input type="text" placeholder="First Name"  name="firstname">
                             </div>
                         </div>
                     </div>
@@ -445,7 +403,7 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">Last Name</label>
                             <div class="rw_input">
-                                <input type="text" placeholder="Last Name" value="due"  name="lastname">
+                                <input type="text" placeholder="Last Name" name="lastname">
                             </div>
                         </div>
                     </div>
@@ -467,6 +425,16 @@
                             </div>
                         </div>
                     </div>
+                    {% for i in custom_field %}
+                    <div class="col-md-6">
+                        <div class="rw_form_inputs">
+                            <label  class="rw_form_label">{{i.name}}</label>
+                            <div class="rw_input">
+                                <input type="{{i.type}}"  name="{{i.name}}">
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
                     
                 </div>
             </div>
@@ -646,7 +614,11 @@
         </div>
     </div>
 <!-- Delete Popup -->
-    <div class="modal fade rw_modal delete_popup" id="delete_confirm_popup" tabindex="-1"  aria-hidden="true">
+    {% for i in data %}
+    <div class="modal fade rw_modal delete_popup" id="delete_confirm_popup-{{forloop.counter}}" tabindex="-1"  aria-hidden="true">
+        <form  action="{% url 'deletecontact' i.id %}" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -661,16 +633,22 @@
                     <h1>Delete 1,239 Contacts</h1>
                     <p>Are you sure you want to delete 1239 contacts?</p>
                 </div>
-            </div>
+            </div> 
             <div class="modal-footer">
              <ul class="modal_btns">
                  <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">no</a></li>
-                 <li><a href="javascript:;" class="modal_btn" >Yes</a></li>
+                 {% comment %} <li><a href="javascript:;" class="modal_btn" >Yes</a></li> {% endcomment %}
+                 <input type="submit" value="Yes" class="modal_btn">
+
              </ul>
             </div>
           </div>
         </div>
+        </form>
+        
+        
     </div>
+    {% endfor %}
 <!-- Chat Popup -->
     <div class="modal fade rw_modal Chat_modal" id="message_popup" tabindex="-1"  aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

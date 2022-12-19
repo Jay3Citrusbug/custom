@@ -7,7 +7,7 @@ type_choice = (
     ("int", "int"),
     ("date", "date"),
     ("largetext","largetext"),
-    ("numeric","numeric")
+    ("number","number")
 
 )
 

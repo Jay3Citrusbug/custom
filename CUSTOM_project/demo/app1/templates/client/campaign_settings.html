@@ -663,19 +663,19 @@
                                             <tr>
                                                 <th>Custom Field</th>
                                                 <th>Type</th>
-                                                <th class="sorting_none text-center">Placeholder</th>
-                                                <th>Date</th>
+                                                {% comment %} <th class="sorting_none text-center">Placeholder</th> {% endcomment %}
+                                                {% comment %} <th>Date</th> {% endcomment %}
                                                 <th class="sorting_none text-center">actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>                    
+                                        <tbody>  
+                                        {% for i in data %}                       
                                         <tr>
                                             <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
+                                                {{i.name}}
+                                            </td>
+                                            <td>{{i.type}}</td>
+
                                             <td class="text-center">
                                                 <div class="action_dropdown">
                                                 <ul class="drop_ul">
@@ -690,174 +690,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Webinar
-                                                </td>
-                                            <td>Date</td>
-                                                <td><div class="default_label"><span>webinar</span></div></td>
-                                            <td>Added on 3 Dec, 2021  03:00 PM</td>
-                                            <td class="text-center">
-                                                <div class="action_dropdown">
-                                                <ul class="drop_ul">
-                                                    <li class="position-relative"><a href="javascript:;" class="action_btn"><img src="{% static '/images/icons/action.svg' %}" alt="action"></a>
-                                                        <ul class="action_submenu">                                             
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/edit.svg' %}" alt="image">Edit</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/delete.svg' %}" alt="image">delete</a></li>
-                                                            <li><a href="javascript:;" class="remove_action" data-bs-toggle="modal" data-bs-target="#"><img src="{% static '/images/icons/colored_icon/campaing.svg' %}" alt="image">Send Broadcast</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>                                    
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
@@ -1292,6 +1125,8 @@
         </div>
     <!-- Create new list Popup -->
     <div class="modal fade rw_modal client_list_modal" id="add_custom_field" tabindex="-1"  aria-hidden="true">
+        <form  action="{% url 'fielddata' %}" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -1316,25 +1151,25 @@
                             <ul class="list_type">
                                 <li>
                                     <div class="rw_radio_btns">
-                                        <input type="radio" name="radio" id="text" checked="">
+                                        <input type="radio" name="radio" value="text" id="text" checked="">
                                         <label for="text">Text</label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="rw_radio_btns">
-                                        <input type="radio" name="radio" id="large_text">
+                                        <input type="radio" name="radio" value="largetext" id="large_text">
                                         <label for="large_text">Large Text</label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="rw_radio_btns">
-                                        <input type="radio" name="radio" id="Date">
+                                        <input type="radio" name="radio" value="date" id="Date">
                                         <label for="Date">Date</label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="rw_radio_btns">
-                                        <input type="radio" name="radio" id="Numerical">
+                                        <input type="radio" name="radio" value="numerical" id="Numerical">
                                         <label for="Numerical">Numerical</label>
                                     </div>
                                 </li>
@@ -1346,11 +1181,14 @@
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href="javascript:;" class="modal_btn" >Add</a></li>
+                {% comment %} <li><a href="javascript:;" class="modal_btn" >Add</a></li> {% endcomment %}
+                <input type="submit" value="add" class="modal_btn">
+
             </ul>
             </div>
         </div>
         </div>
+        </form>
     </div> 
     </div> 
     <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
