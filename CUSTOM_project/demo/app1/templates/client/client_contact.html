@@ -443,8 +443,8 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">{{i.name}}</label>
                             <div class="rw_input">
-                                <input type="{{i.type}}"  name="{{i.name}}">
-                                <input type="text" hidden value="{{i.pk}}" name="field_id">
+                                <input type="{{i.type}}" class="field" id="{{i.pk}}" name="{{i.name}}">
+                                {% comment %} <input type="text" hidden value="{{i.pk}}" name="field_id"> {% endcomment %}
                             </div>
                         </div>
                     </div>
@@ -456,7 +456,7 @@
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
                 {% comment %} <li><a href="{% url 'savedata' %}" class="modal_btn" type="submit" >add</a></li> {% endcomment %}
-                <input type="submit" value="add" class="modal_btn">
+                <input type="submit" value="add" id="submit" class="modal_btn">
             </ul>
             </div>
         </div>
@@ -705,7 +705,43 @@
     <script src="{% static 'js/jquery-ui.js' %}"></script>
     <script src="{% static 'js/select2.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
-    <!-- {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %} -->
+    {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+
+    <script>
+
+     
+
+        {% comment %} Student Select box ON CHANGE event handdling {% endcomment %}
+        $("#submit").on("click", function()
+        {   
+            var data={}
+            var field_1=$(".field")
+            for (let i = 0; i < field_1.length; i++) 
+            {
+                console.log("I =",i)
+                console.log("data =",field_1[i].value)
+                console.log("id =",field_1[i].id)
+                data[field_1[i].id] = field_1[i].value
+
+            }
+        
+            $.ajax({
+                method: "post",
+                url: "/savefield",
+                data: {'data': data},
+                dataType: 'json',
+                async: true,
+                success: function (list) 
+                {
+                    console.log("insert success")
+                    
+                },
+                complete: function(){
+                }
+            });
+        }) 
+      
+    </script>
    
 </body>
 </html>

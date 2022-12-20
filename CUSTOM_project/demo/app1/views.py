@@ -42,22 +42,17 @@ def savedata(request):
         
         data=Contact(phone=phone,firstname=firstname,lastname=lastname,bitrh_date=datetime_object,anni_date=datetime_object_anny,userid=current_user)
         data.save()
+        
+        
+        
         return redirect('listdata')
     
     
         
-        # contact_data=Contact.objects.get(firstname='dhire')
-        # print(contact_data,"contact_id-------------------")
-        
-        
-        # custom_data=Custom.objects.get(name='part')
-        # print(custom_data,"-------------------")
-        
-        # value=request.POST.get('part')
-        # print(value,"0000000000000000")
-        # field=Field(field_value=value,contact_id=contact_data,custom_id=custom_data)
-        # field.save()
-     
+def savefield(request):
+    if request.method == 'POST':
+        print("hiii")
+    
     
 def list(request):
     alldata=Contact.objects.all()
@@ -162,3 +157,8 @@ def editcontactcustom(request,id):
 
         customdata.save()
         return redirect("customlist")
+    
+
+
+
+    
