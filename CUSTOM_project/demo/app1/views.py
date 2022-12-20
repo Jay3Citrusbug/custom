@@ -3,6 +3,7 @@ from app1.models import Contact,Custom,Field
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+
 # Create your views here.
 
 def contact(request):
@@ -10,10 +11,6 @@ def contact(request):
 
 def custom(request):
     return render(request,'client/campaign_settings.html')
-
-
-# def login(request):
-#     return render(request,"agency/agency_login.html")
 
 
 
@@ -36,14 +33,32 @@ def savedata(request):
         
         
         current_user = request.user
-        print (current_user.id)
-        print(current_user,"_________________")
+        current_user_id= current_user.id
+        print(current_user_id,"_________________++++)))(((())((()()")
+        
+        
+  
+      
         
         data=Contact(phone=phone,firstname=firstname,lastname=lastname,bitrh_date=datetime_object,anni_date=datetime_object_anny,userid=current_user)
-        
         data.save()
         return redirect('listdata')
-
+    
+    
+        
+        # contact_data=Contact.objects.get(firstname='dhire')
+        # print(contact_data,"contact_id-------------------")
+        
+        
+        # custom_data=Custom.objects.get(name='part')
+        # print(custom_data,"-------------------")
+        
+        # value=request.POST.get('part')
+        # print(value,"0000000000000000")
+        # field=Field(field_value=value,contact_id=contact_data,custom_id=custom_data)
+        # field.save()
+     
+    
 def list(request):
     alldata=Contact.objects.all()
     custom_field=Custom.objects.all()
@@ -52,6 +67,7 @@ def list(request):
         'data':alldata,
     }
     return render(request,'client/client_contact.html',context)
+
 
 
 
@@ -120,3 +136,29 @@ def editcontact(request,id):
   
 
 
+
+def deletecontactcustom(request,id):
+
+    if request.method=='POST':
+        data=Custom.objects.filter(id=id)
+        print(data)
+        data.delete()
+        return redirect("customlist")
+    
+   
+
+def editcontactcustom(request,id):
+    if request.method == 'POST':
+        fieldname = request.POST.get('fieldname')
+        type=request.POST.get('radio')
+        print(fieldname,type,"________________________________________________1234")
+        
+        
+        current_user = request.user
+        print (current_user.id)
+        print(current_user,"_------------________________")
+        
+        customdata=Custom(id=id,name=fieldname,type=type,userid=current_user)
+
+        customdata.save()
+        return redirect("customlist")
