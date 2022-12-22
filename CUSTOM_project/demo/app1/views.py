@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect
 from app1.models import Contact,Custom,Field
 from datetime import datetime
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
@@ -14,52 +16,93 @@ def custom(request):
 
 
 
-
+@csrf_exempt
 def savedata(request):
     if request.method == 'POST':
+        print(request)
+        print(request.POST,"------POST dasta")
+        
         phone = request.POST.get('number')
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         birthday = request.POST.get('birthday')
         anniversary = request.POST.get('anniversary')
         
-        print(phone,"--------------------------------------------------")
+        print(phone,"phone-----------------------------------------------")
 
-        datetime_str = birthday
-        aniver_date=anniversary
+        # datetime_str = birthday
+        # aniver_date=anniversary
         
-        datetime_object = datetime.strptime(datetime_str, '%m-%d')
-        datetime_object_anny = datetime.strptime(aniver_date, '%m-%d')
+        # datetime_object = datetime.strptime(datetime_str, '%m-%d')
+        # datetime_object_anny = datetime.strptime(aniver_date, '%m-%d')
         
         
         current_user = request.user
         current_user_id= current_user.id
         print(current_user_id,"_________________++++)))(((())((()()")
         
-        
+
   
       
         
-        data=Contact(phone=phone,firstname=firstname,lastname=lastname,bitrh_date=datetime_object,anni_date=datetime_object_anny,userid=current_user)
-        data.save()
+        contactdata=Contact(phone=phone,firstname=firstname,lastname=lastname,bitrh_date=birthday,anni_date=anniversary,userid=current_user)
         
+        contactdata.save()
         
+        last_id=(Contact.objects.last()).id
+        print(last_id,"lastid------------")
         
+        data=request.POST
+        for key in data:
+            print(key)
+            # a=data[key]
+            Custom_ID=Custom.objects.get(id=key)
+            Contact_ID=Contact.objects.get(id=last_id)
+
+            storedata=Field(contact_id=Contact_ID,custom_id=Custom_ID,field_value=data[key])
+            print(storedata,"store____________________++++++++++++___________________")
+            storedata.save()
+            
         return redirect('listdata')
     
     
+# @csrf_exempt
+    
+# def savefield(request):
+#     # dict_data={}
+    
+#     if request.method == 'POST':
+#         data=request.POST
+#         print(request.POST)
+#         for key in data:
+#             print(key)
+#             # a=data[key]
+#             Custom_ID=Custom.objects.get(id=key)
+#             Contacat_ID=Contact.objects.get(firstname='john')
+            
+#             store=Field(contact_id=Contacat_ID,custom_id=Custom_ID,field_value=data[key])
+#             store.save()
+            
+
+            
+
+#         # print("My data =",(mydata))
+#         return HttpResponse("Hiiiiii")
         
-def savefield(request):
-    if request.method == 'POST':
-        print("hiii")
+   
     
     
 def list(request):
-    alldata=Contact.objects.all()
+    data=Contact.objects.all()
     custom_field=Custom.objects.all()
+    field_data=Field.objects.all()
+    # for i in data:
+    #     print(i.field_value,"__________fieldvalue_________")
     context={
         'custom_field':custom_field,
-        'data':alldata,
+        'data':data,
+        'field_data':field_data,
+        
     }
     return render(request,'client/client_contact.html',context)
 
@@ -99,35 +142,46 @@ def deletecontact(request,id):
         data=Contact.objects.filter(id=id)
         print(data)
         data.delete()
-        context={
-            'data':data,
-        }
+        fielddata=Field.objects.filter(contact_id=id)
+        fielddata.delete()
         
         return redirect("listdata")
 
-
-def editcontact(request,id):
+@csrf_exempt
+def editcontact(request):
     if request.method == 'POST':
-        phone = request.POST.get('number')
-        firstname = request.POST.get('firstname')
-        lastname = request.POST.get('lastname')
-        birthday = request.POST.get('birthday')
-        anniversary = request.POST.get('anniversary')
+        print(request.POST,"post request dasta")
         
-        print(birthday,anniversary,"--------------------------------------------------")
+        id=request.POST.get('sid')
+        print(id)
+        pi=Field.objects.filter(contact_id=id)
+        print(pi,"pi====================>")
+        
+        # context={
+                
+        #     }
+        datacontext={}
+        for index, value in enumerate(pi):
+            print(index,"i is ====>")
+            print("type of i is ====>",type(value))
+            temp={}
+            temp['fieldtype']=value.custom_id.type,
+            temp['fieldname']=value.custom_id.name,
+            temp['fieldvalue']=value.field_value,
+            
+            datacontext[f'temp{index}'] = temp
+            print(temp,"temo======>")
+            
+            
+        print(datacontext,"datacontext===================>")    
+        
+        
+      
+        
+        return JsonResponse(datacontext,status=200)
+       
 
-        datetime_str = birthday
-        aniver_date=anniversary
-        
-        datetime_object = datetime.strptime(datetime_str, '%m-%d')
-        datetime_object_anny = datetime.strptime(aniver_date, '%m-%d')
-        
-        
-        current_user = request.user
-        
-        data=Contact(id=id,phone=phone,firstname=firstname,lastname=lastname,bitrh_date=datetime_object,anni_date=datetime_object_anny,userid=current_user)
-        data.save()
-        return redirect('listdata')
+
   
 
 
@@ -136,6 +190,7 @@ def deletecontactcustom(request,id):
 
     if request.method=='POST':
         data=Custom.objects.filter(id=id)
+        
         print(data)
         data.delete()
         return redirect("customlist")
