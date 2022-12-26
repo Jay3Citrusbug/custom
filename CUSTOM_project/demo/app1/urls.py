@@ -17,6 +17,7 @@ urlpatterns = [
     
     path('deletecontact/<int:id>/',views.deletecontact,name="deletecontact"),
     path('editcontact/',views.editcontact,name="editcontact"),
+    path('editcontactdata/',views.editcontactdata,name="editcontactdata"),
     path('deletecontactcustom/<int:id>/',views.deletecontactcustom,name="deletecontactcustom"),
     path('editcontactcustom/<int:id>/',views.editcontactcustom,name="editcontactcustom"),
 

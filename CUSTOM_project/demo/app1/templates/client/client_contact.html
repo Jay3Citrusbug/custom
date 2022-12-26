@@ -313,13 +313,13 @@
             </div>
             <div class="modal-body">
               
-                <div class="row dynamic_field">
+                <div class="row dynamic_field-{{i.id}}" >
                  
                     <div class="col-md-12">
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
-                                <input type="number" name="number" id="number" placeholder="Phone Number" value="{{i.phone}}">
+                                <input type="number" name="number" id="number_edit" placeholder="Phone Number" value="{{i.phone}}">
                                 <span class="input_icon phone"></span>
                             </div>
                         </div>
@@ -328,7 +328,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">First Name</label>
                             <div class="rw_input">
-                                <input type="text" name="firstname" placeholder="First Name" value="{{i.firstname}}">
+                                <input type="text" name="firstname" id="firstname_edit" placeholder="First Name" value="{{i.firstname}}">
                             </div>
                         </div>
                     </div>
@@ -336,7 +336,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Last Name</label>
                             <div class="rw_input">
-                                <input type="text" name="lastname" placeholder="Last Name" value="{{i.lastname}}">
+                                <input type="text" name="lastname" id="lastname_edit" placeholder="Last Name" value="{{i.lastname}}">
                             </div>
                         </div>
                     </div>
@@ -344,7 +344,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label class="rw_form_label">Birthday</label>
                             <div class="rw_input">
-                                <input type="date" name="birthday" placeholder="mm-dd" id="rw_date_month1" value="{{i.bitrh_date}}">
+                                <input type="date" name="birthday" placeholder="mm-dd" id="birthday_edit" value="{{i.bitrh_date}}">
                                 {% comment %} <p>{{i.bitrh_date}}</p> {% endcomment %}
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
@@ -354,7 +354,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label class="rw_form_label">Anniversary</label>
                             <div class="rw_input">
-                                <input type="date" name="anniversary" placeholder="mm-dd" id="rw_date_month2" value="{{i.anni_date}}">
+                                <input type="date" name="anniversary" placeholder="mm-dd" id="anniversary_edit" value="{{i.anni_date}}">
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
                         </div>
@@ -462,7 +462,7 @@
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href="" class="modal_btn" type="submit" id="submitdata" >add</a></li>
+                <li><a href="" class="modal_btn" id="submitdata" >add</a></li>
                 {% comment %} <input type="submit" value="add" id="submitdata" class="modal_btn"> {% endcomment %}
             </ul>
             </div>
@@ -721,7 +721,6 @@
         {% comment %} Student Select box ON CHANGE event handdling {% endcomment %}
         $("#submitdata").on("click", function()
         {   
-           
             var data={}
             var field_1=$(".field")
             var number=$("#number").val()
@@ -742,6 +741,7 @@
                 console.log("I =",i)
                 console.log("data =",field_1[i].value)
                 console.log("id =",field_1[i].id)
+                console.log("name =",field_1[i].name)
                 data[field_1[i].id] = field_1[i].value
 
             }
@@ -766,7 +766,7 @@
             });
         }) 
 
-        $(".btn-edit").on("click", function()
+        $(".btn-edit").one("click", function()
         {   
            
             let id = $(this).attr("data-sid");
@@ -783,17 +783,18 @@
                 {
                     console.log("insert success")
                     console.log(list)
+                    
                     $.each(list, function(key, value) 
                     {
                         console.log("key=",key)  
                         console.log("value",value)
 
-                        $('.dynamic_field').append(`
+                        $('.dynamic_field-'+id).append(`
                         <div class="col-md-6">
                             <div class="rw_form_inputs">
-                                <label  class="rw_form_label dynamic_key"></label>
+                                <label  class="rw_form_label dynamic_key">`+ value['fieldname'] +`</label>
                                 <div class="rw_input">
-                                    <input type="text" name="lastname" value="" placeholder="" >
+                                    <input type="`+ value['fieldtype'] +`" class="customclass" value="`+ value['fieldvalue'] +`" name="`+ value['fieldname'] +`" id="`+value['customfieldid'] +`">
                                </div>
                             </div>
                         </div>`);
@@ -810,14 +811,49 @@
 
 
         }) 
-        {% comment %} $("#editsubmit").on("click", function()
+
+
+        $("#editsubmit").on("click", function()
         {   
-            
+            var temp=[]
+            var data={}
+            var number_edit=$("#number_edit").val()
+            var firstname_edit=$("#firstname_edit").val()
+            var lastname_edit=$("#lastname_edit").val()
+            var birthday_edit=$("#birthday_edit").val()
+            var anniversary_edit=$("#anniversary_edit").val()
+            console.log(firstname_edit,"firstname edit================>")
+            console.log(temp,"temp===========>")
+
+            for (let i = 0; i < $(".customclass").length; i++)
+            {
+                console.log($(".customclass")[i].value)
+                temp+=$(".customclass")[i].value
+            }
+
+           
+
+            data['number_edit']=number_edit
+            data['firstname_edit'] = firstname_edit
+            data['lastname_edit'] = lastname_edit
+            data['birthday_edit'] = birthday_edit
+            data['anniversary_edit'] = anniversary_edit
+            data['customclass'] = temp
+
+    
+            console.log("number =",number_edit)
+            console.log("firstname =",firstname_edit)
+            console.log("lastname =",lastname_edit)
+            console.log("birthday =",birthday_edit)
+            console.log("anniversary =",anniversary_edit)
+            console.log("temp is value=",temp)
+
+
             
             $.ajax({
                 method: "POST", 
-                url: "editcontact/",
-                data: mydata, 
+                url: "editcontactdata/",
+                data: data, 
                 dataType: 'json',
                 async: true,
 
@@ -829,7 +865,7 @@
             })
 
 
-        })  {% endcomment %}
+        })   
     </script>
    
 </body>
