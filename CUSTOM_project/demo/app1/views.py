@@ -30,23 +30,21 @@ def savedata(request):
         
         print(phone,"phone-----------------------------------------------")
         print(birthday,"birthday-------------------------------->")
-
-        # datetime_str = birthday
-        # aniver_date=anniversary
         
-        # datetime_object = datetime.strptime(datetime_str, '%m-%d')
-        # datetime_object_anny = datetime.strptime(aniver_date, '%m-%d')
         
         
         current_user = request.user
         current_user_id= current_user.id
         print(current_user_id,"_________________++++)))(((())((()()")
-        
-
-  
-      
-        
-        contactdata=Contact(phone=phone,firstname=firstname,lastname=lastname,bitrh_date=birthday,anni_date=anniversary,userid=current_user)
+        data_dict =dict(phone=phone,firstname=firstname,lastname=lastname,userid=current_user)
+        if birthday:
+            datetime_object_birth = datetime.strptime(birthday, '%Y-%m-%d')
+            data_dict['bitrh_date'] = datetime_object_birth
+        if anniversary:
+            datetime_object_anny = datetime.strptime(anniversary, '%Y-%m-%d')
+            data_dict['anni_date'] = datetime_object_anny
+            
+        contactdata=Contact(**data_dict)
         
         contactdata.save()
 
@@ -55,7 +53,7 @@ def savedata(request):
         
         data=request.POST
         for key in data:
-            print(key)
+            print(key,"key is ===")
             # a=data[key]
             Custom_ID=Custom.objects.get(id=key)
             Contact_ID=Contact.objects.get(id=last_id)
@@ -192,12 +190,10 @@ def editcontactdata(request):
         lastname_edit = request.POST.get('lastname_edit')
         birthday_edit = request.POST.get('birthday_edit')
         anniversary_edit = request.POST.get('anniversary_edit')
+        customclass=request.POST.get('customclass')
         print(number_edit,"edited number ")
-        # customclass=request.POST.get('customclass')
-        
-        # spiltclass=customclass.split()
-        
-        print(number_edit,firstname_edit,lastname_edit,"editeddata all============================>")
+        print(firstname_edit,"firsstname name edited")
+        print(customclass,"customclass dasta all============================>")
         
         current_user = request.user
         current_user_id= current_user.id
@@ -207,6 +203,7 @@ def editcontactdata(request):
         edited_contactdata.save()
         
         return redirect("listdata")
+        # return HttpResponse("all data succssfully")
     
 
 

@@ -390,7 +390,7 @@
     {% endfor %}
 <!-- Add contact Popup -->
     <div class="modal fade rw_modal add_contact" id="add_contact_tolist" tabindex="-1"  aria-hidden="true">
-        <form  action="" id="post-form" method="post" enctype="multipart/form-data" autocomplete="off">
+        <form  id="post-form" method="post" enctype="multipart/form-data" autocomplete="off">
            {% csrf_token %}
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -406,9 +406,10 @@
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
-                                <input type="number" id="number" placeholder="Phone Number" name="number">
-                                <span class="input_icon phone"></span>
+                                <input type="number" id="number" placeholder="Phone Number" name="number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                                <span class="number_error" style="color: red;"></span>
                             </div>
+                         
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -431,7 +432,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label  class="rw_form_label">Birthday</label>
                             <div class="rw_input">
-                                <input type="date" id="birthday" class="date_input" placeholder="mm-dd" id="rw_date_month3"  name="birthday">
+                                <input type="date" id="birthday" class="date_input" placeholder="YYYY/MM/DD" id="rw_date_month3"  name="birthday">
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
                         </div>
@@ -440,7 +441,7 @@
                         <div class="rw_form_inputs rw_date_input">
                             <label  class="rw_form_label">Anniversary</label>
                             <div class="rw_input">
-                                <input type="date" id="anniversary" class="date_input" placeholder="mm-dd" id="rw_date_month4" name="anniversary">
+                                <input type="date" id="anniversary" class="date_input" placeholder="yyyy-mm-dd" id="rw_date_month4" name="anniversary">
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
                         </div>
@@ -715,12 +716,30 @@
     {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
 
     <script>
-
-     
-
-        {% comment %} Student Select box ON CHANGE event handdling {% endcomment %}
+    $(document).ready(function(){
         $("#submitdata").on("click", function()
         {   
+            // number valiadation start
+            var validRegex = /[6789]{1}[0-9]{9}/;
+            if($("#number").val()==""){
+                $(".number_error").text("please enter no.")
+            }
+        
+            
+            else{
+                $(".number_error").text("")
+                
+                if(!validRegex.test($("#number").val())){
+                    
+                    $(".number_error").text("invalid number")
+                    }
+
+                
+                }
+            // number validation close
+
+
+
             var data={}
             var field_1=$(".field")
             var number=$("#number").val()
@@ -746,6 +765,7 @@
 
             }
             console.log("Data =",data)
+            
             $.ajax({
                 method: "POST", 
                 url: "savedata/",
@@ -765,7 +785,6 @@
                 }
             });
         }) 
-
         $(".btn-edit").one("click", function()
         {   
            
@@ -865,7 +884,8 @@
             })
 
 
-        })   
+        }) 
+    })  
     </script>
    
 </body>
