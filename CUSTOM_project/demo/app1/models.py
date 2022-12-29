@@ -19,6 +19,15 @@ class Custom(models.Model):
     def __str__(self):
         return str(self.name)
     
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "type": self.type,
+            # other stuff
+        }
+    
+    
 class Contact(models.Model):
     phone = models.CharField(max_length=10) 
     firstname = models.CharField(max_length=125)

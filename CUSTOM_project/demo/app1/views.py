@@ -4,7 +4,8 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core import serializers
+import json
 
 # Create your views here.
 
@@ -156,29 +157,62 @@ def editcontact(request):
         id=request.POST.get('sid')
         print(id)
         pi=Field.objects.filter(contact_id=id)
-        print(pi,"pi====================>")
+        # pi_custom_field=Custom.objects.all()
+        # print(pi_custom_field,"pi_custom_field====================>")
         
-        # context={
-                
-        #     }
+   
+        
+        # for obj in pi_custom_field:
+        #     obj.as_dict()
+            
+        # # dictionaries=[ obj.as_dict() for obj in pi_custom_field ]
+        # print(dictionaries,"dictionary is ====================================>>>>>>>")
+        # print(type(dictionaries[0]),"dictionary is ====================================>>>>>>>")
+        
         datacontext={}
+        # new_datacontext={}
+        
+        # for index, value in enumerate(pi_custom_field):
+        #     print(index,"new i is ====>")
+        #     print(" new type of i is ====>",(value))
+        #     temp={}
+        #     temp['id']=value.id,
+        #     temp['name']=value.name,
+        #     temp['type']=value.type,
+            
+            
+            
+            
+        #     new_datacontext[f'temp{index}'] = temp
+        #     print(temp,"new temp is==>>")
+        # print(new_datacontext,"new_Datacontecxt===============>>>>")
+         
         for index, value in enumerate(pi):
-            print(index,"i is ====>")
-            print("type of i is ====>",type(value))
+            # print(index,"i is ====>")
+            # print("type of i is ====>",type(value))
+            print(value.contact_id.id,"contaact id is =====================>")
             temp={}
             temp['fieldtype']=value.custom_id.type,
             temp['fieldname']=value.custom_id.name,
             temp['fieldvalue']=value.field_value,
             temp['customfieldid']=value.custom_id.id,
+            temp['contactfieldid']=value.contact_id.id
+            
             
             datacontext[f'temp{index}'] = temp
             print(temp,"temo======>")
             
-            print(value.custom_id.id,"customfield id ============================>")
-        print(datacontext,"datacontext===================>")    
+            # print(value.custom_id.id,"customfield id ============================>")
+        # print(datacontext,"datacontext===================>")    
+        customcontext={
+            'datacontext':datacontext,
+            # 'pi_custom_field_json':new_datacontext
+            
+        }
+        print(customcontext,"customcontext=======================>")
         
-        return JsonResponse(datacontext,status=200)
-       
+        return JsonResponse(customcontext,status=200)
+        # return HttpResponse(json.dumps({"data": dictionaries})),
 @csrf_exempt
 def editcontactdata(request):
     if request.method == 'POST':
@@ -190,10 +224,10 @@ def editcontactdata(request):
         lastname_edit = request.POST.get('lastname_edit')
         birthday_edit = request.POST.get('birthday_edit')
         anniversary_edit = request.POST.get('anniversary_edit')
-        customclass=request.POST.get('customclass')
-        print(number_edit,"edited number ")
-        print(firstname_edit,"firsstname name edited")
-        print(customclass,"customclass dasta all============================>")
+        # # customclass=request.POST.get('customclass')
+        # print(number_edit,"edited number ")
+        # print(firstname_edit,"firsstname name edited")
+        # print(customclass,"customclass dasta all============================>")
         
         current_user = request.user
         current_user_id= current_user.id

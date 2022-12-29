@@ -313,7 +313,9 @@
             </div>
             <div class="modal-body">
               
-                <div class="row dynamic_field-{{i.id}}" >
+                {% comment %} <div class="row dynamic_field-{{i.id}}" > {% endcomment %}
+                <div class="row" >
+
                  
                     <div class="col-md-12">
                         <div class="rw_form_inputs">
@@ -359,7 +361,20 @@
                             </div>
                         </div>
                     </div>
-            
+                    
+                    {% for j in custom_field %}
+    
+                    
+                        <div class="col-md-6">
+                            <div class="rw_form_inputs">
+                                <label  class="rw_form_label">{{j.name}}</label>
+                                <div class="rw_input">
+                                    <input type="{{j.type}}" class="field_edit" id="edit-{{i.pk}}-{{j.pk}}" tag_id="{{j.pk}}" name="{{i.name}}">
+                                </div>
+                            </div>
+                        </div>
+                  
+                    {% endfor %} 
                     {% comment %} <div class="col-md-6">
                         <div class="rw_form_inputs">
                             <label  class="rw_form_label dynamic_key"></label>
@@ -367,10 +382,10 @@
                                 <input type="text" name="lastname" value="" placeholder="" >
                            </div>
                         </div>
-                    </div>   {% endcomment %}
-                 
-                </div>
-
+                        </div> 
+                     
+                    {% endcomment %}
+                </div>   
             </div>
             <div class="modal-footer">
             <ul class="modal_btns">
@@ -785,12 +800,32 @@
                 }
             });
         }) 
+
+
+
+
         $(".btn-edit").one("click", function()
         {   
-           
+
+            var data_edit={}
+            var field_edit=$(".field_edit")
             let id = $(this).attr("data-sid");
             console.log(id);
             mydata={sid:id}
+
+            
+
+            /*for (let i = 0; i < field_edit.length; i++) 
+            {
+                //console.log("I =",i)
+              
+                //console.log("id =",field_edit[i].id)
+                //console.log("name =",field_edit[i].name)
+                data_edit['id'] = field_edit[i].getAttribute('tag_id')
+
+            }*/
+            //console.log(data_edit,"Data edited id is =")
+
             $.ajax({
                 method: "POST", 
                 url: "editcontact/",
@@ -801,14 +836,65 @@
                 success: function (list) 
                 {
                     console.log("insert success")
-                    console.log(list)
+                    //console.log(list['pi_custom_field_json']['new_temp0'],"list=============>")
+                    //test1 = list['pi_custom_field_json']
+                    //test2 = list['datacontext']
                     
-                    $.each(list, function(key, value) 
-                    {
-                        console.log("key=",key)  
-                        console.log("value",value)
+                    console.log(list,"list is ")
+                    console.log(list['datacontext'],"  is in datacxonrecxty")
+                    $.each(list['datacontext'], function(key, value) 
+                    {   
+                        
+                        //if 
+                        console.log("yyyyyyey i d===",list['datacontext'][key]['contactfieldid'])
+                        for (let i = 0; i < field_edit.length; i++) 
+                        {    
+                            
+                            
+                            console.log(key,"key is ======>")
+                            console.log(value['customfieldid'][0],"value is ======>")
+                                //data_edit['id'] = field_edit[i].getAttribute('tag_id')
+                            console.log(field_edit[i].getAttribute('tag_id'),"tag id ")
+                            let uid=list['datacontext'][key]['contactfieldid']
+                            let cid=value['customfieldid'][0]
+                            if (field_edit[i].getAttribute('tag_id') == value['customfieldid'][0])
+                            {
+                               
+                                console.log("------------",$("#edit-"+value['customfieldid'][0]))
+                                //$("#edit-"+value['customfieldid'][0]).val(value['fieldvalue'][0])
+                                $("#edit-"+uid+"-"+cid).val(value['fieldvalue'][0])
+                               
 
-                        $('.dynamic_field-'+id).append(`
+
+                                console.log("inside if condition")
+                                console.log ("val textv =",value['fieldvalue'][0])
+                            }
+                           
+            
+                        }
+
+                        //console.log(list['datacontext'].length,"length is")
+                        //console.log(Object.keys(list['datacontext']).length)
+
+                        /*for (let i = 0; i < list['datacontext'].length; i++) 
+                        {    
+                            
+                            if (list['datacontext'][i]['customfieldid']==){
+                                
+                                $('#'+customfieldjson['pk']).val(custdatacontext['fieldvalue'])
+                            }
+                            
+                            else {
+                                $('#i.pk').val("none")
+                            }
+
+                        }*/
+                          
+                        
+
+
+
+                        /*$('.dynamic_field-'+id).append(`
                         <div class="col-md-6">
                             <div class="rw_form_inputs">
                                 <label  class="rw_form_label dynamic_key">`+ value['fieldname'] +`</label>
@@ -816,7 +902,7 @@
                                     <input type="`+ value['fieldtype'] +`" class="customclass" value="`+ value['fieldvalue'] +`" name="`+ value['fieldname'] +`" id="`+value['customfieldid'] +`">
                                </div>
                             </div>
-                        </div>`);
+                        </div>`);*/
                     });
                 
                 },
