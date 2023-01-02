@@ -321,7 +321,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
-                                <input type="number" name="number" id="number_edit" placeholder="Phone Number" value="{{i.phone}}">
+                                <input type="number" name="number" id="number_edit-{{i.id}}" placeholder="Phone Number" value="{{i.phone}}">
                                 <span class="input_icon phone"></span>
                             </div>
                         </div>
@@ -330,7 +330,7 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">First Name</label>
                             <div class="rw_input">
-                                <input type="text" name="firstname" id="firstname_edit" placeholder="First Name" value="{{i.firstname}}">
+                                <input type="text" name="firstname" id="firstname_edit-{{i.id}}" placeholder="First Name" value="{{i.firstname}}">
                             </div>
                         </div>
                     </div>
@@ -338,25 +338,24 @@
                         <div class="rw_form_inputs">
                             <label class="rw_form_label">Last Name</label>
                             <div class="rw_input">
-                                <input type="text" name="lastname" id="lastname_edit" placeholder="Last Name" value="{{i.lastname}}">
+                                <input type="text" name="lastname" id="lastname_edit-{{i.id}}" placeholder="Last Name" value="{{i.lastname}}">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="rw_form_inputs rw_date_input">
-                            <label class="rw_form_label">Birthday</label>
+                            <label  class="rw_form_label">Birthday</label>
                             <div class="rw_input">
-                                <input type="date" name="birthday" placeholder="mm-dd" id="birthday_edit" value="{{i.bitrh_date}}">
-                                {% comment %} <p>{{i.bitrh_date}}</p> {% endcomment %}
+                                <input type="date" id="birthday_edit-{{i.id}}" class="date_input" placeholder="YYYY/MM/DD"  name="birthday">
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="rw_form_inputs rw_date_input">
-                            <label class="rw_form_label">Anniversary</label>
+                            <label  class="rw_form_label">Anniversary</label>
                             <div class="rw_input">
-                                <input type="date" name="anniversary" placeholder="mm-dd" id="anniversary_edit" value="{{i.anni_date}}">
+                                <input type="date" id="anniversary_edit-{{i.id}}" class="date_input" placeholder="yyyy-mm-dd" name="anniversary">
                                 {% comment %} <span class="input_icon calendar"></span> {% endcomment %}
                             </div>
                         </div>
@@ -369,7 +368,7 @@
                             <div class="rw_form_inputs">
                                 <label  class="rw_form_label">{{j.name}}</label>
                                 <div class="rw_input">
-                                    <input type="{{j.type}}" class="field_edit" id="edit-{{i.pk}}-{{j.pk}}" tag_id="{{j.pk}}" name="{{i.name}}">
+                                    <input type="{{j.type}}" class="field_edit" id="edit-{{i.pk}}-{{j.pk}}" tag_id="{{j.pk}}" name="{{j.name}}">
                                 </div>
                             </div>
                         </div>
@@ -390,7 +389,8 @@
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href=""  id="editsubmit" class="modal_btn" >Save</a></li>
+                <li><a href="" class="modal_btn" id="editsubmit-{{i.id}}"  >Save</a></li>
+
                 {% comment %} <input type="submit" id="editsubmit" value="Save" class="modal_btn"> {% endcomment %}
 
             </ul>
@@ -422,7 +422,7 @@
                             <label  class="rw_form_label">Phone Number</label>
                             <div class="rw_input">
                                 <input type="number" id="number" placeholder="Phone Number" name="number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                                <span class="number_error" style="color: red;"></span>
+                                <span class="number_error" id="number_error" style="color: red;"></span>
                             </div>
                          
                         </div>
@@ -478,7 +478,7 @@
             <div class="modal-footer">
             <ul class="modal_btns">
                 <li><a href="javascript:;" class="modal_btn cancel" data-bs-dismiss="modal">cancel</a></li>
-                <li><a href="" class="modal_btn" id="submitdata" >add</a></li>
+                <li><a class="modal_btn" id="submitdata" >add</a></li>
                 {% comment %} <input type="submit" value="add" id="submitdata" class="modal_btn"> {% endcomment %}
             </ul>
             </div>
@@ -731,29 +731,42 @@
     {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
 
     <script>
+
     $(document).ready(function(){
-        $("#submitdata").on("click", function()
-        {   
+       
+        function varifyphone(){
             // number valiadation start
             var validRegex = /[6789]{1}[0-9]{9}/;
             if($("#number").val()==""){
                 $(".number_error").text("please enter no.")
             }
-        
             
             else{
                 $(".number_error").text("")
                 
                 if(!validRegex.test($("#number").val())){
-                    
+
                     $(".number_error").text("invalid number")
                     }
-
-                
+                else if($("#number").val().length!=10){
+                    $(".number_error").text("invalid number")
+                    }
                 }
             // number validation close
+        }
 
-
+        $("#number").change(function(){
+            if( !$(this).val() == '')
+                $(".number_error").show();
+            else
+                $(".number_error").hide();
+        })
+       
+        $("#number").on("input", varifyphone)
+        $("#submitdata").on("click", function()
+        {   
+            
+            varifyphone()
 
             var data={}
             var field_1=$(".field")
@@ -790,18 +803,29 @@
 
                 success: function (list) 
                     {
+
+                        if (list.status==true){
+                            console.log(list.msg)
+                            $(".number_error").text(list.msg)
+                        }
+                        
+                        console.log(list,"list is ===========>>")
                         console.log("insert success")
                         
                     },
                 error: function (response) { 
                     console.log('Inwide errornbloack------');
+                    window.location.reload()
                 },
                 complete: function(){
+                    console.log("inside complte block")
+                   
+
                 }
             });
         }) 
-
-
+        
+      
 
 
         $(".btn-edit").one("click", function()
@@ -814,7 +838,47 @@
             mydata={sid:id}
 
             
+            $("#editsubmit-"+id).on("click", function()
+            {   
+                var edit_data={}
+                console.log((id),"id click is ===")
+                var number_edit=$("#number_edit-"+id).val()
+                var firstname_edit=$("#firstname_edit-"+id).val()
+                var lastname_edit=$("#lastname_edit-"+id).val()
+                var birthday_edit=$("#birthday_edit-"+id).val()
+                var anniversary_edit=$("#anniversary_edit-"+id).val()
+                console.log(number_edit,"rwekrbhwejkrfhweofh")
 
+                edit_data['id']=id
+                edit_data['number_edit']=number_edit
+                edit_data['firstname_edit']=firstname_edit
+
+                edit_data['lastname_edit']=lastname_edit
+
+                edit_data['birthday_edit']=birthday_edit
+
+                edit_data['anniversary_edit']=anniversary_edit
+                        
+                $.ajax({
+                    method: "POST", 
+                    url: "editcontactdata/",
+                    data: edit_data,
+                    dataType: 'json',
+                    async: true,
+
+                    success: function (list) 
+                        {
+                            console.log("insert success")
+                            
+                        },
+                    error: function (response) { 
+                        console.log('Inwide errornbloack------');
+                    },
+                    complete: function(){
+                    }
+                });
+
+            })
             /*for (let i = 0; i < field_edit.length; i++) 
             {
                 //console.log("I =",i)
@@ -836,9 +900,10 @@
                 success: function (list) 
                 {
                     console.log("insert success")
-                    //console.log(list['pi_custom_field_json']['new_temp0'],"list=============>")
-                    //test1 = list['pi_custom_field_json']
-                    //test2 = list['datacontext']
+
+
+
+
                     
                     console.log(list,"list is ")
                     console.log(list['datacontext'],"  is in datacxonrecxty")
@@ -873,22 +938,7 @@
             
                         }
 
-                        //console.log(list['datacontext'].length,"length is")
-                        //console.log(Object.keys(list['datacontext']).length)
-
-                        /*for (let i = 0; i < list['datacontext'].length; i++) 
-                        {    
-                            
-                            if (list['datacontext'][i]['customfieldid']==){
-                                
-                                $('#'+customfieldjson['pk']).val(custdatacontext['fieldvalue'])
-                            }
-                            
-                            else {
-                                $('#i.pk').val("none")
-                            }
-
-                        }*/
+                        
                           
                         
 
@@ -918,32 +968,37 @@
         }) 
 
 
-        $("#editsubmit").on("click", function()
+        /*$("#editsubmit").on("click", function()
         {   
-            var temp=[]
-            var data={}
+            //var temp={}
+           // var data={}
             var number_edit=$("#number_edit").val()
             var firstname_edit=$("#firstname_edit").val()
             var lastname_edit=$("#lastname_edit").val()
             var birthday_edit=$("#birthday_edit").val()
             var anniversary_edit=$("#anniversary_edit").val()
+            var class_edit=$(".field_edit").val()
             console.log(firstname_edit,"firstname edit================>")
-            console.log(temp,"temp===========>")
+            console.log(lastname_edit,"firstname edit================>")
 
-            for (let i = 0; i < $(".customclass").length; i++)
+            console.log(class_edit,"class_edit edited================>")
+
+            //console.log(temp,"temp===========>")
+
+            for (let i = 0; i < $(".field_edit").length; i++)
             {
-                console.log($(".customclass")[i].value)
-                temp+=$(".customclass")[i].value
+                console.log($(".field_edit")[i].value,"get edited data value==================>")
+                //temp+=$(".customclass")[i].value
             }
 
            
 
-            data['number_edit']=number_edit
+            /*data['number_edit']=number_edit
             data['firstname_edit'] = firstname_edit
             data['lastname_edit'] = lastname_edit
             data['birthday_edit'] = birthday_edit
             data['anniversary_edit'] = anniversary_edit
-            data['customclass'] = temp
+            //data['customclass'] = temp
 
     
             console.log("number =",number_edit)
@@ -951,7 +1006,7 @@
             console.log("lastname =",lastname_edit)
             console.log("birthday =",birthday_edit)
             console.log("anniversary =",anniversary_edit)
-            console.log("temp is value=",temp)
+            //console.log("temp is value=",temp)
 
 
             
@@ -970,8 +1025,8 @@
             })
 
 
-        }) 
-    })  
+        })*/
+    })
     </script>
    
 </body>

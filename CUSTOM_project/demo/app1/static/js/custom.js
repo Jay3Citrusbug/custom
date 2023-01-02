@@ -232,9 +232,9 @@ $(document).ready(function () {
       search: "",
       searchPlaceholder: "Search number/name",
       paginate: {
-        next: '<img src="../assets/images/icons/chevron_right.svg" alt="image">',
+        next: '<img src="../static/images/icons/chevron_right.svg" alt="image">',
         previous:
-          '<img src="../assets/images/icons/chevron_left.svg" alt="image">',
+          '<img src="../static/images/icons/chevron_left.svg" alt="image">',
       },
     },
     bPaginate: true,

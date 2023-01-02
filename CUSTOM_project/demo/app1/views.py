@@ -32,6 +32,12 @@ def savedata(request):
         print(phone,"phone-----------------------------------------------")
         print(birthday,"birthday-------------------------------->")
         
+       
+        if Contact.objects.filter(phone=phone):
+            return JsonResponse({'status':True,'msg':'number is already exists'})
+        
+     
+        
         
         
         current_user = request.user
@@ -47,6 +53,9 @@ def savedata(request):
             
         contactdata=Contact(**data_dict)
         
+        
+        
+      
         contactdata.save()
 
         last_id=(Contact.objects.last()).id
@@ -157,6 +166,7 @@ def editcontact(request):
         id=request.POST.get('sid')
         print(id)
         pi=Field.objects.filter(contact_id=id)
+        print(pi,"pi is ==========>")
         # pi_custom_field=Custom.objects.all()
         # print(pi_custom_field,"pi_custom_field====================>")
         
@@ -219,6 +229,15 @@ def editcontactdata(request):
         print(request)
         print(request.POST,"------POST dasta")
         
+        id=request.POST.get('id')
+        print(id,"id of student obj data is====>>>>")
+        
+        contact_obj = Contact.objects.get(id=id)
+        print(contact_obj,"object of student is=========>")
+        print(contact_obj.lastname,"object of student is firstname=========>")
+
+        
+        
         number_edit = request.POST.get('number_edit')
         firstname_edit = request.POST.get('firstname_edit')
         lastname_edit = request.POST.get('lastname_edit')
@@ -233,8 +252,26 @@ def editcontactdata(request):
         current_user_id= current_user.id
         print(current_user_id,"_________________++++)))(((())((()()")
         
-        edited_contactdata=Contact(phone=number_edit,firstname=firstname_edit,lastname=lastname_edit,bitrh_date=birthday_edit,anni_date=anniversary_edit,userid=current_user)
-        edited_contactdata.save()
+        
+        # data_dict =dict(phone=number_edit,firstname=firstname_edit,lastname=lastname_edit,userid=current_user)
+        if birthday_edit:
+            datetime_object_birth = datetime.strptime(birthday_edit, '%Y-%m-%d')
+            # data_dict['bitrh_date'] = datetime_object_birth
+        if anniversary_edit:
+            datetime_object_anny = datetime.strptime(anniversary_edit, '%Y-%m-%d')
+            # data_dict['anni_date'] = datetime_object_anny
+            
+        # edited_contactdata=Contact(**data_dict)
+        
+        contact_obj.phone=number_edit
+        contact_obj.firstname=firstname_edit
+        contact_obj.lastname=lastname_edit
+        contact_obj.bitrh_date=datetime_object_birth
+        contact_obj.anni_date=datetime_object_anny
+        contact_obj.userid=current_user
+       
+        contact_obj.save()
+        
         
         return redirect("listdata")
         # return HttpResponse("all data succssfully")
